@@ -1,0 +1,166 @@
+Agricultura, Primario
+Ganadería, Primario
+Caza, Primario
+Silvicultura (Explotación forestal), Primario
+Pesca y Acuicultura, Primario
+Explotación de Minas y Canteras (Minería), Primario
+Extracción de Petróleo y Gas, Primario
+Industrias Manufactureras, Secundario
+Industria Alimentaria y de Bebidas, Secundario
+Industria Textil y Confección, Secundario
+Industria Química, Secundario
+Industria Farmacéutica, Secundario
+Fabricación de Productos Metálicos, Secundario
+Fabricación de Maquinaria y Equipo, Secundario
+Fabricación de Equipo Eléctrico y Electrónico, Secundario
+Fabricación de Vehículos Automotores, Secundario
+Industria Maderera y del Mueble, Secundario
+Suministro de Electricidad, Secundario
+Suministro de Gas, Secundario
+Suministro de Vapor y Aire Acondicionado, Secundario
+Construcción, Secundario
+Comercio al por Mayor, Terciario
+Comercio al por Menor (Negocio minorista), Terciario
+Ventas online o Comercio electrónico (Ecommerce), Terciario
+Reparación de Vehículos Automotores y Motocicletas, Terciario
+"Reparación de computadores y equipo personal", Terciario
+Transporte Terrestre, Terciario
+Transporte Marítimo, Terciario
+Transporte Aéreo, Terciario
+Almacenamiento y Logística, Terciario
+Distribución de productos, Terciario
+Hotelería y Alojamiento, Terciario
+Restaurantes, Terciario
+Cafeterías y Bares, Terciario
+Servicios de Comida y Bebida, Terciario
+Actividades Financieras (Banca), Terciario
+Actividades de Seguros, Terciario
+"Actividades Inmobiliarias (Compra, venta, alquiler)", Terciario
+Actividades de Servicios Administrativos y de Apoyo, Terciario
+Administración Pública y Defensa, Terciario
+Planes de Seguridad Social de Afiliación Obligatoria, Terciario
+Hospitales, Terciario
+Servicios de Salud, Terciario
+Cirugía y Odontología, Terciario
+Servicios Veterinarios, Terciario
+Actividades Artísticas, Terciario
+Danzas y Espectáculos, Terciario
+Actividades de Entretenimiento y Recreación, Terciario
+Actividades Deportivas, Terciario
+Turismo y Agencias de Viajes, Terciario
+Peluquerías, Terciario
+Lavanderías, Terciario
+Servicios de Limpieza, Terciario
+Servicios de Seguridad, Terciario
+Spas y Centros de Bienestar, Terciario
+Servicios de Reparación de Enseres Domésticos, Terciario
+Distribución y Comercialización de Videojuegos, Terciario
+Organización de Eventos, Terciario
+Servicios Postales y de Mensajería, Terciario
+Actividades de los Hogares como Empleadores, Terciario
+Administración de recursos humanos, Terciario
+Producción de Música, Terciario
+Producción de Contenido Digital, Terciario
+Eventos y Actividades Culturales, Terciario
+Distribución de Agua, Terciario
+Evacuación y Tratamiento de Aguas Residuales, Terciario
+Gestión de Desechos y Descontaminación, Terciario
+Información y Comunicaciones, Cuaternario
+Telecomunicaciones, Cuaternario
+Edición de Libros, Cuaternario
+Edición de Periódicos y Revistas, Cuaternario
+Producción y Distribución de Cine, Cuaternario
+Video y Programas de Televisión, Cuaternario
+Transmisión de Radio y Televisión, Cuaternario
+Desarrollo de Software y Programación, Cuaternario
+Desarrollo de Videojuegos, Cuaternario
+Servicios de Consultoría, Cuaternario
+Investigación Científica y Desarrollo (I+D), Cuaternario
+Abogacia, Cuaternario
+Contaduría y Auditoría, Cuaternario
+Asesoría Financiera, Cuaternario
+Arquitectura y Diseño, Cuaternario
+Diseño Gráfico, Cuaternario
+Ingeniería y Servicios Técnicos, Cuaternario
+Publicidad y Estudios de Mercado, Cuaternario
+Educación, Cuaternario
+Investigación universitaria, Cuaternario
+Tecnología de la Información (TI), Cuaternario
+Robótica, Cuaternario
+Inteligencia Artificial, Cuaternario
+Web scraping, Cuaternario
+Análisis de datos, Cuaternario
+Minería de datos, Cuaternario
+Biotecnología, Cuaternario
+FinTech (Tecnología Financiera), Cuaternario
+Tienda de Abarrotes, Terciario
+Tienda de Barrio, Terciario
+Minimercado, Terciario
+Supermercado, Terciario
+Panadería, Terciario
+Pastelería y Repostería, Terciario
+Carnicería, Terciario
+Pescadería, Terciario
+Frutería y Verdulería, Terciario
+Charcutería (Venta de embutidos y quesos), Terciario
+Dulcería, Terciario
+Confitería, Terciario
+Licorería, Terciario
+Venta de Bebidas, Terciario
+Heladería, Terciario
+Plaza de Mercado (Puesto de Venta), Terciario
+Floristería, Terciario
+Vivero, Terciario
+Venta de Plantas, Terciario
+Ferretería, Terciario
+Papelería, Terciario
+Librería, Terciario
+Juguetería, Terciario
+Tienda de Ropa, Terciario
+Boutique, Terciario
+Zapatería, Terciario
+Tienda de Accesorios, Terciario
+Bisutería, Terciario
+Joyería, Terciario
+Farmacia, Terciario
+Droguería, Terciario
+Perfumería, Terciario
+Tienda de Cosméticos, Terciario
+Tienda de Artículos Deportivos, Terciario
+Tienda de Electrónicos , Terciario
+Tienda de Electrodomésticos, Terciario
+Mueblería, Terciario
+Tienda de Muebles, Terciario
+Tienda de Artículos para el Hogar y Decoración, Terciario
+Tienda de Mascotas y Alimentos para Mascotas, Terciario
+Tienda de Regalos, Terciario
+Miscelánea, Terciario
+Óptica, Terciario
+Quiosco, Terciario
+Tienda de Segunda Mano, Terciario
+Prendería, Terciario
+Salón de Belleza, Terciario
+Barbería, Terciario
+Estudio de Tatuajes, Terciario
+Estudio de Piercing, Terciario
+Gimnasio, Terciario
+Centro de Fitness, Terciario
+Escuela de Conducción, Terciario
+"Servicios de Fotografía (Estudio, Eventos)", Terciario
+Lavado de Autos, Terciario
+Serviteca, Terciario
+Guardería, Terciario
+Cuidado de Niños, Terciario
+Cuidado de Ancianos a Domicilio (No médico), Terciario
+Paseador de Perros, Terciario
+Cuidado de Mascotas, Terciario
+Taller de Reparación de Calzado (Zapatero), Terciario
+"Taller de Reparación de Ropa, Sastrería", Terciario
+Servicio de Cerrajería, Terciario
+Servicio de Plomería, Terciario
+Servicio de Fontanería, Terciario
+Servicio de Carpintería, Terciario
+Servicio de Pintura, Terciario
+Servicio de Jardinería, Terciario
+Servicio de Electricista, Terciario
+Centro de Copiado e Impresión, Terciario

@@ -1,0 +1,32 @@
+{
+    "label2id": {
+        "Insulto": 0,
+        "Pregunta Económica": 1,
+        "Pregunta Personal": 2,
+        "Pregunta sobre Proceso": 3,
+        "Respuesta Activos": 4,
+        "Respuesta Cartera": 5,
+        "Respuesta Categoria Empresa": 6,
+        "Respuesta Deudas": 7,
+        "Respuesta Empleados": 8,
+        "Respuesta Ganancias": 9,
+        "Respuesta Nombre": 10,
+        "Respuesta Sector": 11,
+        "Saludo": 12
+    },
+    "id2label": {
+        "0": "Insulto",
+        "1": "Pregunta Económica",
+        "2": "Pregunta Personal",
+        "3": "Pregunta sobre Proceso",
+        "4": "Respuesta Activos",
+        "5": "Respuesta Cartera",
+        "6": "Respuesta Categoria Empresa",
+        "7": "Respuesta Deudas",
+        "8": "Respuesta Empleados",
+        "9": "Respuesta Ganancias",
+        "10": "Respuesta Nombre",
+        "11": "Respuesta Sector",
+        "12": "Saludo"
+    }
+}

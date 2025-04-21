@@ -1,0 +1,49 @@
+¿Me puedes explicar mejor qué información necesitas con esa pregunta?
+¿Cuál es el objetivo final de recopilar todos estos datos empresariales?
+¿Puedes ser más específico/a en tu pregunta?
+¿Hay alguna forma de ver todas las preguntas antes de empezar?
+¿Qué significa [término usado por el AI] en tu pregunta?
+¿Qué harán con estos datos?
+¿Estás seguro/a que necesito dar un valor exacto para eso?
+¿Cuántas más vienen?
+Esa pregunta sobre [dato específico] es complicada de responder.
+¿A qué te refieres exactamente con esa pregunta?
+¿No podrías preguntar de una manera más sencilla?
+¿Quedó clara mi respuesta anterior sobre [dato específico]?
+¿Cómo fue la pregunta?
+¿Hay un límite de tiempo para responder cada pregunta?
+¿Cómo garantiza la confidencialidad de estos datos empresariales?
+Me parece que estás pidiendo demasiados detalles.
+Tu pregunta anterior no tenía mucho sentido en mi contexto.
+¿Me puedes explicar la finalidad de esta encuesta/serie de preguntas?
+Prefiero no responder esa pregunta sobre [dato específico].
+¿Es largo este proceso?
+¿Podrías reformular tu pregunta sobre [dato específico]?
+La pregunta anterior me pareció ambigua, ¿puedes aclararla?
+¿Puedes repetir la última pregunta, por favor?
+No entendí bien lo que me acabas de preguntar sobre la empresa.
+¿Hay alguna alternativa si no puedo responder a esa pregunta?
+¿Podemos hacer una pausa y seguir con las preguntas de la empresa luego?
+¿Confirmas que entendiste lo que quise decir sobre [dato específico]?
+¿Me repites, por favor?
+¿Y esto para qué sirve?
+¿Quieres que detalle más mi respuesta anterior?
+¿Se puede guardar el progreso y continuar en otro momento?
+¿Es posible que mi tipo de empresa no maneje ese indicador que preguntas?
+¿Por qué es necesario que proporcione el dato sobre [dato específico]?
+¿Necesitas que te explique mejor mi respuesta sobre [dato específico]?
+¿Cuántas preguntas más faltan sobre mi negocio?
+¿Falta mucho?
+¿Qué pasa si no tengo acceso a esa información ahora mismo?
+¿Esta es la última información que necesitas sobre la compañía?
+¿Cuál es la razón de pedir [dato específico]?
+¿Podemos volver a la pregunta anterior?
+¿Podemos tener una idea de cuántos temas se van a cubrir?
+La información que pides sobre [dato específico] es muy sensible/confidencial.
+¿Cuánto tiempo más o menos crees que tome responder todo?
+¿Para qué van a utilizar la información de mi empresa?
+Las preguntas están siendo muy técnicas.
+¿Ya estamos por terminar con las preguntas de la empresa?
+¿Puedes decir eso de nuevo?
+¿Podemos saltarnos esta pregunta por ahora?
+¿Este cuestionario es muy largo?

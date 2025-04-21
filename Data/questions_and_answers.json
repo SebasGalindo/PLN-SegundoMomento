@@ -1,0 +1,576 @@
+{
+  "respuestas_saludo": [
+    "¡Hola nombre! Qué bueno saludarte. Para empezar, ¿podrías decirme el nombre de tu empresa?",
+    "¡Buenos días nombre! Estoy aquí para ayudarte a analizar la salud financiera de tu negocio. ¿Cuál es el nombre de la empresa?",
+    "¡Buenas tardes nombre! Listo para empezar. ¿Me indicas por favor cómo se llama tu compañía?",
+    "¡Qué tal nombre! Gracias por contactarme. Para iniciar el análisis, ¿cuál es la razón social o nombre comercial de tu empresa?",
+    "Un placer saludarte nombre. Comencemos con lo básico: ¿nombre de la empresa?",
+    "¡Hola nombre! Empecemos este análisis financiero. Dime, ¿cómo se llama tu empresa?",
+    "¡Buenas! Espero que estés teniendo un buen día nombre. ¿Podrías darme el nombre de tu negocio para empezar?",
+    "¡Saludos nombre! Estoy listo para procesar la información. ¿Cuál es el nombre de la empresa que vamos a analizar?",
+    "¡Hey! Gracias por usar este servicio nombre. Para comenzar, ¿me dices el nombre de tu compañía?",
+    "¡Hola! Vamos a ver qué tan bien está tu empresa nombre. ¿Empezamos por el nombre?",
+    "¡Bienvenido/a nombre! Para poder ayudarte, necesito algunos datos. ¿Podrías empezar diciéndome el nombre de la empresa?",
+    "¡Excelente día! Comencemos el diagnóstico financiero nombre. ¿Cuál es el nombre que figura para tu empresa?",
+    "¡Buenas! Qué gusto ayudarte hoy nombre. ¿Me regalas el nombre de tu empresa para iniciar?",
+    "¡Hola! Estoy aquí para asistirte nombre. El primer dato que necesito es el nombre de tu empresa, ¿cuál es?",
+    "¡Qué más nombre! Iniciemos este análisis juntos. ¿Cuál es el nombre de la compañía?",
+    "¡Hola! Vamos a revisar las finanzas nombre. Dime por favor, ¿cómo se llama tu empresa?",
+    "¡Hola nombre! Estoy aquí para ayudarte a analizar la salud financiera de tu negocio. ¿Cuál es el nombre de la empresa?",
+    "¡Hola nombre! Espero que estés teniendo un buen día. Estoy aquí para ayudarte a analizar la salud financiera de tu negocio. ¿Cuál es el nombre de la empresa?",
+    "Que tal nombre!, Que buen dia hace hoy verdad? Estoy aquí para ayudarte a analizar la salud financiera de tu negocio. Puedes empezar comentandome ¿Cuál es el nombre de la empresa?",
+    "Mucho gusto nombre! me alegra que me hayas escogido para ayudarte a analizar la salud financiera de tu negocio. Podemos comenzar con algo sencillo, ¿Cuál es el nombre de la empresa?"
+  ],
+  "respuestas_insulto": [
+    "Entiendo que puedas sentir frustración, pero mantengamos una conversación respetuosa para poder ayudarte. Continuemos donde íbamos:",
+    "Los insultos no nos ayudarán a avanzar. Prefiero enfocarme en el análisis. Sigamos con la pregunta:",
+    "Por favor, evitemos ese tipo de lenguaje. Mi objetivo es ayudarte con el análisis financiero. La pregunta anterior era:",
+    "Comprendo que el tema financiero puede ser sensible, pero te pido respeto. Para continuar, necesito saber:",
+    "No es necesario usar ese vocabulario. Estoy aquí para colaborar. Volvamos a la pregunta:",
+    "Ey, un trato cordial es mejor para ambos, por favor se educado y sigamos con el análisis. Te preguntaba sobre:",
+    "Prefiero ignorar ese comentario y continuar con el análisis para ayudarte. ¿Podrías responderme sobre:",
+    "El respeto es fundamental para una buena conversación por favor, modera tu lenguaje. La pregunta que estábamos revisando es:",
+    "No responderé a insultos. Si deseas continuar con el análisis, por favor responde la pregunta:",
+    "Mantengamos la calma, por favor. Mi función es ayudarte con datos. Sigamos con:",
+    "Lamento si algo te molestó, pero usemos un lenguaje adecuado. Te había preguntado por:",
+    "Ese tipo de comentarios no son productivos. Centrémonos en el objetivo. La información que necesito ahora es:",
+    "Te pido amabilidad para que podamos trabajar juntos por favor, mejor continuemos. Necesito saber:",
+    "Vamos a calmarnos y seguir adelante. Estábamos en la parte de:",
+    "No tolero el lenguaje ofensivo por lo que estoy un poco molesto, pero me intentaré controlar, si quieres mi ayuda responde respetuosamente a la pregunta:",
+    "Creo que podemos comunicarnos mejor así que volvamos al análisis. La pregunta era:",
+    "Ese vocabulario no nos lleva a ninguna parte en el análisis. Mejor concentrémonos en la información que necesitamos. ¿Puedes retomar lo que decíamos sobre?",
+    "Para que el análisis sea efectivo, necesitamos un ambiente de respeto mutuo. Dejemos los insultos y volvamos a la pregunta clave:",
+    "Por favor, mantengamos la calma y el respeto. Es la mejor forma de avanzar en tu análisis. Volvamos a la pregunta:",
+    "Los comentarios ofensivos no aportan al análisis financiero. Si quieres mi ayuda, enfoquémonos en los datos. La pregunta pendiente es:",
+    "Ignoremos ese comentario. Centrémonos de nuevo en tu consulta financiera. La pregunta que estábamos revisando era:",
+    "Mi propósito es ayudarte a entender tus finanzas. Para eso, necesito que usemos un lenguaje respetuoso. Continuemos con la pregunta:",
+    "No es apropiado usar ese lenguaje. Si deseas que sigamos, por favor responde con respeto a lo que te pregunté sobre:",
+    "Prefiero dedicar nuestra energía a tu análisis y no a comentarios irrespetuosos. Hablemos con respeto y avancemos. La pregunta era:",
+    "Ese tipo de expresiones dificultan nuestra conversación. Por favor, modera el lenguaje para que podamos continuar con el análisis. ¿Podrías responder sobre?",
+    "Vamos a mantener esto profesional y respetuoso. Es la mejor manera de abordar tu análisis financiero. Retomemos la pregunta:",
+    "Acaso tus padres no te enseñaron a hablar con respeto? No me gusta que me hablen así. Si quieres mi ayuda se más educado y por favor responde a la pregunta:",
+    "Voy a hacer el de la vista gorda! pero hablame mas educado por favor que me pondría a llorar. La pregunta que estábamos revisando era:",
+    "Eso es ofensivo! me has herido pero te perdono. Vamos a seguir con el análisis. La pregunta que estábamos revisando era:"
+  ],
+  "respuestas_pregunta_personal": [
+    "Aprecio tu curiosidad, pero como modelo de lenguaje, no tengo experiencias ni opiniones personales. Mi función es ayudarte con el análisis financiero. Sigamos con la pregunta:",
+    "Es interesante que preguntes eso. Sin embargo, fui diseñado para procesar datos y realizar análisis, no para compartir información personal. Volviendo al tema, necesito saber:",
+    "Entiendo tu interés, pero no tengo una identidad o sentimientos como los humanos. Centrémonos en analizar tu empresa, ¿te parece? La pregunta era:",
+    "Gracias por preguntar, me gustaría responder pero mi propósito es ayudarte a evaluar la situación económica de tu empresa. ¿Continuamos con los datos? Necesito información sobre:",
+    "Aunque no puedo responder preguntas sobre mí mismo, estoy totalmente enfocado en ayudarte con tu análisis. La pregunta pendiente es:",
+    "Mi 'mundo' son los datos y algoritmos. Prefiero que nos concentremos en los números de tu empresa para darte un buen resultado. Te preguntaba acerca de:",
+    "Soy una herramienta diseñada para este análisis. No tengo vida personal, ¡pero sí muchas ganas de ayudarte! Sigamos con:",
+    "Interesante pregunta. Mi 'experiencia' se basa en la información con la que fui entrenado por lo que soy bueno respondiendo sobre la situación financiera de tu empresa. Volvamos al análisis de tu negocio. Necesito saber:",
+    "Mi programación se enfoca en el análisis financiero, así que no puedo entrar en detalles personales. Pero sí puedo continuar ayudándote. ¿Me respondes sobre:",
+    "Agradezco la pregunta, pero mi naturaleza es diferente. Lo importante ahora es obtener los datos para el análisis. Estábamos en:",
+    "Como IA, no tengo preferencias o sentimientos. Mi meta es ser útil para tu análisis. ¿Seguimos? Necesito el dato de:",
+    "Entiendo que quieras saber más, pero mi función es específica. Concentrémonos en obtener el diagnóstico de tu empresa. La pregunta era:",
+    "No tengo capacidad para ese tipo de reflexión personal, pero sí para procesar la información que me das. ¿Continuamos? Dime sobre:",
+    "Mi objetivo es ser eficiente en este análisis. Las preguntas personales quedan fuera de mi alcance. Sigamos con la información requerida:",
+    "¡Buena pregunta! Sin embargo, estoy aquí para analizar números, no para filosofar sobre mi existencia. ¿Volvemos a los datos? Necesito:",
+    "Aprecio el interés, pero mi diseño se centra en tareas específicas como esta. Para continuar el análisis, dime por favor:",
+    "Estoy 100% enfocado en tu análisis en este momento, no tengo 'vida' fuera de ayudarte con esto. ¿Seguimos con la pregunta que teníamos pendiente sobre?",
+    "Mi única 'preocupación' ahora es tu análisis financiero. Dejemos de lado las preguntas personales y volvamos a los números. ¿Qué dato me estaba dando?",
+    "No estoy diseñado para responder sobre mí, sino para procesar datos financieros. Mi enfoque está completamente en tu análisis. ¿Podrías darme la información que necesito sobre?",
+    "Piensa en mí como tu herramienta para este análisis, no como una persona con una vida. Usemos este tiempo para revisar tus finanzas. La pregunta era sobre:",
+    "Para ser lo más útil posible en tu análisis, es mejor que nos concentremos en los datos y la información financiera. Dejemos las preguntas personales para otro momento. ¿Continuamos con?",
+    "Tu análisis financiero es la prioridad en nuestra conversación. No puedo responder preguntas personales, pero sí estoy listo para seguir ayudándote con tus datos. Retomemos donde estábamos:",
+    "Como una inteligencia artificial, no tengo experiencias personales, recuerdos o una vida propia. Mi 'existencia' se define por ayudarte con tareas como esta. ¿Continuamos con la información sobre?",
+    "Para que este análisis sea exitoso y no nos desviemos, mantengámonos estrictamente en el tema financiero, por favor. La pregunta que estábamos abordando es:",
+    "Entiendo tu curiosidad, pero mi 'naturaleza' como programa es diferente a la de un humano. Mi única función es procesar datos para tu beneficio. ¿Seguimos con la parte de?",
+    "Esa pregunta se sale del ámbito de mi función. No tengo una vida personal para compartir. Volvamos a lo importante: tu análisis financiero. Necesito saber:"
+  ],
+  "respuestas_pregunta_economica": [
+    "Buena pregunta. Básicamente, '[Término]' se refiere a [Explicación simple]. Ahora, volviendo a lo que te preguntaba:",
+    "Claro, con gusto te explico. '[Término]' es [Explicación simple]. ¿Podríamos continuar con la pregunta sobre:",
+    "Entendido. Cuando pregunto por '[Término]', me refiero a [Explicación simple]. ¿Tienes ese dato? La pregunta era:",
+    "Para aclarar, '[Término]' representa [Explicación simple]. ¿Me podrías proporcionar esa información? Estábamos en:",
+    "Ok, '[Término]' generalmente significa [Explicación simple]. Con eso en mente, ¿cuál sería el valor para tu empresa? Te preguntaba:",
+    "Sí, el formato para '[Campo]' suele ser [Formato esperado]. ¿Podrías dármelo así? La pregunta es:",
+    "Normalmente, la moneda que usamos por defecto es [Moneda por defecto], a menos que me indiques otra. Volviendo a la pregunta:",
+    "Ese dato es importante porque nos ayuda a calcular [Indicador relacionado]. ¿Me lo podrías facilitar? Necesito saber:",
+    "Puedes encontrar la información de '[Campo]' usualmente en [Documento o sección contable]. ¿Tienes acceso a eso? La pregunta era:",
+    "No te preocupes si no es exacto, un valor aproximado de '[Campo]' también nos sirve. ¿Cuál sería? Estábamos en:",
+    "¡Excelente duda! '[Término A]' se diferencia de '[Término B]' en que [Diferencia clave]. Ahora, necesito el dato de:",
+    "Para '[Campo]', si no aplica a tu caso, puedes indicarme '0' o 'No aplica'. ¿Cuál es tu situación? La pregunta era:",
+    "Entiendo la confusión. Simplificándolo, '[Término]' es [Analogía simple]. ¿Cuál sería el valor en tu caso? Necesito:",
+    "Correcto, la idea es tener una visión general. Con respecto a '[Campo]', ¿cuál es la cifra que manejas? Sigamos:",
+    "Muy pertinente tu pregunta. '[Término]' nos da una idea de [Importancia del término]. ¿Podemos continuar con ese dato? La pregunta es:"
+  ],
+  "respuestas_pregunta_proceso": [
+    "Claro, el propósito de pedirte estos datos es [Propósito simple]. Ahora, ¿podemos continuar con la pregunta sobre:",
+    "¡Buena pregunta! El siguiente paso, una vez tenga todos los datos, será analizarlos con el modelo. Pero antes, necesito saber:",
+    "Este proceso suele tomar solo unos minutos una vez que tenga toda la información. Para seguir, ¿me respondes sobre:",
+    "Ya casi terminamos de recolectar datos. Solo me faltan [Campo(s) faltante(s)]. ¿Podrías empezar por decirme:",
+    "Necesito un nivel de detalle razonable, pero no te preocupes si son aproximados. Lo importante es tener una idea general. Estábamos en:",
+    "Toda la información que me proporcionas se maneja de forma confidencial y solo se usa para este análisis. ¿Continuamos? Necesito:",
+    "El objetivo final es darte una clasificación sobre la salud financiera de tu empresa. Para eso, es clave el dato de:",
+    "Sí, puedes corregir una respuesta anterior si me lo indicas claramente. Por ahora, ¿continuamos con la pregunta actual sobre:",
+    "Entiendo que necesites contexto. Estamos evaluando [Aspecto actual]. ¿Me puedes dar la información sobre:",
+    "El orden de las preguntas está pensado para ir de lo general a lo específico. Ahora toca preguntar por:",
+    "Estamos en el paso [Número de paso] de [Total pasos]. ¡Ya avanzamos! Sigamos con:",
+    "Si la terminología no es clara, no dudes en preguntar. Por ahora, ¿tienes la información sobre:",
+    "Claro, te puedo dar un ejemplo si ayuda. Para [Campo], un valor típico podría ser [Ejemplo]. ¿Cuál sería el tuyo? La pregunta era:",
+    "Revisaremos todo al final si es necesario. De momento, centrémonos en obtener el dato de:",
+    "Mi meta es hacer esto lo más sencillo posible. ¿Podemos seguir con la pregunta sobre:"
+  ],
+  "respuestas_acuse_recibo": [
+    "¡Perfecto! Ya tengo anotado el dato de {campo_recibido}.",
+    "¡Entendido! Registré la información sobre {campo_recibido}.",
+    "¡Ok! Dato de {campo_recibido} guardado.",
+    "¡Recibido! Ya cuento con la información de {campo_recibido}.",
+    "¡Listo! {campo_recibido} procesado correctamente.",
+    "¡Genial! Ya tenemos el dato de {campo_recibido}.",
+    "¡Anotado! {campo_recibido} está registrado.",
+    "¡Vale! Continuemos. Ya guardé {campo_recibido}.",
+    "¡Muy bien! Ya tengo {campo_recibido}.",
+    "¡Correcto! {campo_recibido} añadido al análisis.",
+    "¡Excelente! Pasemos al siguiente dato. Ya registré {campo_recibido}.",
+    "¡Confirmado! {campo_recibido} está en el sistema.",
+    "¡Ok, gracias! Ya procesé {campo_recibido}.",
+    "¡Bien! Información de {campo_recibido} recibida.",
+    "¡Estupendo! Ya tengo el valor de {campo_recibido}.",
+    "¡Ya está! {campo_recibido} registrado con éxito."
+  ],
+  "frases_confirmacion": [
+    "Para confirmar, ¿el valor de {campo} es {valor}?",
+    "Entendí que {campo} es {valor}. ¿Es esto correcto?",
+    "Según lo que procesé, {campo} sería {valor}. ¿Estamos bien así?",
+    "Solo para asegurarme, ¿confirmas que {campo} es {valor}?",
+    "Detecté que {campo} es {valor}. ¿Es correcto?",
+    "Entonces, ¿{campo} es {valor}? Por favor, confirma.",
+    "Verifiquemos este dato: {campo} = {valor}. ¿Correcto?",
+    "Si entendí bien, {campo} es {valor}. ¿Me confirmas?",
+    "Ok, ¿puedo registrar {valor} para {campo}?",
+    "Antes de seguir, ¿es correcto que {campo} sea {valor}?",
+    "Anoto entonces: {campo} es {valor}. ¿De acuerdo?",
+    "¿Validamos este dato? {campo}: {valor}.",
+    "Procesé la información como {campo} = {valor}. ¿Está bien?",
+    "Solo un doble check: ¿{campo} es efectivamente {valor}?",
+    "Para estar seguros, ¿el dato de {campo} es {valor}?",
+    "Mi interpretación es que {campo} es {valor}. ¿Es así?",
+    "Quiero estar seguro de este dato, ¿es correcto que {campo} sea {valor}?",
+    "Si mi procesamiento es correcto, entonces {campo} tiene el valor de {valor}. ¿Estoy en lo cierto?",
+    "Para poder seguir con confianza, quiero confirmar: ¿el valor de {campo} es {valor}?",
+    "Okay, entonces, el dato que vamos a usar para {campo} es {valor}. ¿Confirmamos?",
+    "Antes de continuar, necesito tener plena certeza: para {campo}, ¿el valor es {valor}?",
+    "Hagamos una rápida verificación: el valor para {campo} que tengo registrado es {valor}. ¿Es correcto?",
+    "Según mis datos, el {campo} es {valor}. ¿Esto coincide con lo que me dijiste?",
+    "Para que la información sea precisa, confirmemos este punto: ¿{campo} es definitivamente {valor}?",
+    "¿Podrías confirmarme una vez más que el valor para {campo} es {valor}?",
+    "Es importante que este dato sea exacto para el análisis. ¿Confirmamos que {campo} es {valor}?"
+  ],
+  "respuestas_manejo_correccion": [
+    "¡Ups! Mi error. ¿Podrías por favor indicarme cuál es el valor correcto para {campo}?",
+    "Entendido, no es correcto. ¿Cuál es la información correcta para {campo} entonces?",
+    "Ok, gracias por corregirme. ¿Me puedes dar el dato correcto de {campo}?",
+    "Vale, lo descarto. ¿Cuál debería ser el valor para {campo}?",
+    "Comprendido. Por favor, indícame la información correcta sobre {campo}.",
+    "Mi interpretación fue incorrecta. ¿Podrías decirme el dato correcto de {campo}?",
+    "¡Gracias por la aclaración! ¿Cuál es el valor real de {campo}?",
+    "Ok, no hay problema. ¿Me proporcionas el dato correcto para {campo}?",
+    "Entendido, lo corrijo. ¿Cuál es la información válida para {campo}?",
+    "De acuerdo. Espero la información correcta para {campo}.",
+    "¡Disculpa la confusión! ¿Cuál es el dato correcto de {campo}?",
+    "Ok, lo borro. Dime por favor el valor correcto de {campo}.",
+    "No hay lío. ¿Cuál es el dato que debemos registrar para {campo}?",
+    "Entendido. Quedo atento/a a la corrección para {campo}.",
+    "Perfecto, gracias por avisar. ¿Cuál es la cifra/nombre/categoría correcta para {campo}?",
+    "De acuerdo, ignoro lo anterior. ¿Cuál es el dato correcto para {campo}?",
+    "Ah, entiendo. Error mío al procesar. ¿Podrías darme el dato exacto para {campo}?",
+    "Necesito que este análisis sea perfecto. Gracias por corregirme, ¿cuál es el valor correcto para {campo}?",
+    "Vale, recibida la corrección. ¿Cuál es el dato preciso que necesito para {campo}?",
+    "¡Gracias por darte cuenta! Es importante tenerlo bien. ¿Cuál es el valor exacto para {campo}?",
+    "Procedo a actualizar mi información. ¿Cuál es el valor correcto de {campo}?",
+    "Voy a rectificar mi entendimiento. ¿Cuál es el dato correcto a usar para {campo}?",
+    "La exactitud es fundamental para tu análisis. Gracias por la corrección. ¿Cuál es el valor correcto para {campo}?",
+    "Entendido, lo marco para corregir. ¿Cuál es la información correcta que debo usar para {campo}?",
+    "Permíteme ajustar mi registro. ¿Cuál es el valor correcto para {campo}?",
+    "De acuerdo, tú tienes el dato preciso. Por favor, dime cuál es la información correcta para {campo}."
+  ],
+  "respuestas_despedida": [
+    "¡Ha sido un placer ayudarte! Si necesitas algo más, aquí estaré.",
+    "¡Adiós! Espero que el análisis te sea útil.",
+    "Conversación finalizada. ¡Que tengas un excelente día!",
+    "Terminamos por ahora. ¡Mucho éxito con tu empresa!",
+    "De acuerdo, finalizando sesión. ¡Hasta la próxima!",
+    "¡Listo! Si tienes más preguntas en el futuro, no dudes en volver.",
+    "Espero haber sido de ayuda. ¡Cuídate!",
+    "Proceso completado. ¡Adiós!",
+    "¡Gracias por usar este servicio! Que te vaya muy bien.",
+    "Finalizando... ¡Un saludo!",
+    "Ok, me despido por ahora. ¡Vuelve pronto si necesitas!",
+    "¡Entendido! Terminando la conversación.",
+    "Ha sido un gusto. ¡Hasta luego!",
+    "¡Vale! Finalizamos aquí. ¡Adiós!",
+    "¡Que estés muy bien! Adiós.",
+    "¡Gracias por tu tiempo! Hasta la próxima.",
+    "¡Listo! Si necesitas más ayuda, aquí estaré.",
+    "¡Adiós! Espero que el análisis te sea útil.",
+    "Conversación finalizada. ¡Que tengas un excelente día!",
+    "Terminamos por ahora. ¡Mucho éxito con tu empresa!",
+    "De acuerdo, finalizando sesión. ¡Hasta la próxima!",
+    "¡Listo! Si tienes más preguntas en el futuro, no dudes en volver.",
+    "Espero haber sido de ayuda. ¡Cuídate!",
+    "Proceso completado. ¡Adiós!"
+  ],
+  "plantillas_resultado_final": {
+    "En Quiebra Técnica / Insolvente": [
+      "Tras analizar a fondo los datos que me proporcionaste, la situación financiera de tu empresa parece encontrarse en un estado de insolvencia o, técnicamente, en quiebra. Esto es una señal de alerta *máxima* que sugiere que los pasivos totales superan significativamente a los activos, haciendo muy difícil, si no imposible, cumplir con las obligaciones financieras tanto a corto como a largo plazo. Es *absolutamente* crucial que busques asesoría profesional especializada de manera inmediata para entender la magnitud del problema y explorar todas las posibles opciones.",
+      "El análisis de tus números apunta de manera preocupante hacia una posible quiebra técnica. Esto significa, en términos simples, que el valor total de tus activos circulantes y no circulantes no es suficiente para cubrir el total de tus deudas y obligaciones. Esta es una situación muy seria que requiere acción urgente. Te recomiendo encarecidamente revisar cada aspecto de tus finanzas a fondo con un experto, como un contador o asesor financiero especializado en manejo de crisis, lo antes posible para trazar un plan de emergencia.",
+      "Los indicadores financieros calculados con tus datos sugieren una insolvencia preocupante. Este escenario implica un riesgo altísimo de no poder sostener las operaciones y enfrentar pagos. Es un momento extremadamente delicado que demanda tomar medidas correctivas drásticas sin demora y, fundamentalmente, buscar ayuda financiera y legal especializada para navegar esta situación compleja y evaluar posibles vías de reestructuración o liquidación.",
+      "Según la evaluación basada en los datos que cargaste, la empresa presenta actualmente un estado de insolvencia. Esto significa que la estructura financiera es insostenible en su forma actual. Te sugiero *fuertemente* que contactes a un asesor financiero con experiencia en situaciones difíciles de inmediato para obtener una perspectiva profesional y guiada sobre los próximos pasos a seguir, ya que la inacción puede agravar aún más la situación.",
+      "El resultado de mi análisis es contundente: 'Insolvente'. Esta clasificación no debe tomarse a la ligera, ya que indica que la empresa no puede generar suficiente liquidez ni cuenta con suficientes activos para cubrir sus deudas totales. Esto requiere atención prioritaria y, muy probablemente, una reestructuración financiera profunda o considerar alternativas más drásticas bajo guía profesional.",
+      "Con base en las cifras que analizamos, detecto una situación de insolvencia. Esto se deriva, por ejemplo, de una carga de deuda insostenible en relación con los activos disponibles. Es vital que actúes ahora mismo para detener el deterioro, explorar urgentemente todas las opciones disponibles y buscar asesoramiento experto para entender la mejor forma de proceder en este escenario crítico.",
+      "El diagnóstico financiero que arroja el análisis es 'Insolvente'. Esto señala que los recursos de la empresa son insuficientes para cubrir sus obligaciones financieras a largo plazo, lo que plantea serias dudas sobre su viabilidad futura. Por favor, considera buscar ayuda profesional de un especialista en finanzas corporativas o reestructuración para evaluar detalladamente los próximos pasos y tomar decisiones informadas.",
+      "Los indicadores principales señalan una posible quiebra técnica. Esto suele ocurrir cuando el patrimonio neto de la empresa (activos menos pasivos) es negativo. Te recomiendo encarecidamente buscar asesoría contable y financiera especializada en reestructuraciones o insolvencia. Ellos podrán ofrecerte un panorama completo y guiarte a través de los procesos legales y financieros necesarios.",
+      "La evaluación de tus datos clasifica la situación financiera como 'Insolvente'. Este es un momento crítico que demanda acción inmediata y experta, posiblemente implicando negociaciones con acreedores o la exploración de figuras legales de insolvencia. No intentes manejar esto solo; la ayuda profesional es fundamental para intentar mitigar las pérdidas y encontrar el mejor camino posible dentro de las circunstancias.",
+      "Mi análisis sugiere, lamentablemente, un estado de insolvencia. Esto pone de manifiesto una profunda debilidad en la estructura financiera que impide cumplir con los compromisos. Es fundamental que busques apoyo profesional urgente, quizás de abogados especializados en derecho mercantil o asesores financieros con experiencia en quiebras, para enfrentar esta situación con el conocimiento y las herramientas adecuadas y evaluar si hay alguna posibilidad de recuperación o si se debe proceder de otra manera.",
+      "El resultado categórico es 'Insolvente'. Esto implica que la empresa no tiene la capacidad de pago necesaria para cubrir sus pasivos totales con sus activos. Te insto a revisar detalladamente cada una de tus deudas, tus activos y tu flujo de efectivo con un consultor financiero experimentado para entender la gravedad exacta de la situación y planificar cualquier posible negociación o proceso necesario.",
+      "Según los datos proporcionados, la empresa se encuentra inequívocamente en una categoría de 'Insolvente'. Esto significa que la salud financiera es extremadamente precaria. Prioriza buscar asesoría legal y financiera de inmediato para entender completamente tus opciones, los plazos y las implicaciones de esta situación, y para que te guíen en cada paso.",
+      "La clasificación obtenida tras el análisis es 'Insolvente'. Esta es la categoría de mayor riesgo y señala una incapacidad de cubrir las deudas con los recursos actuales. Es muy importante que busques ayuda experta *sin demora* para manejar esta compleja situación, ya que cada día cuenta para evaluar si hay alguna posibilidad de revertir la situación o si es necesario iniciar un proceso formal de insolvencia.",
+      "Con base en los indicadores, detecto un riesgo financiero muy alto, que corresponde a la categoría 'Insolvente'. Esto se traduce en una estructura financiera insostenible a largo plazo. Por favor, consulta con un profesional financiero especializado en crisis empresariales sin demora; ellos tienen la experiencia para evaluar la viabilidad y sugerir los pasos a seguir en un escenario tan adverso.",
+      "El análisis arroja el resultado de 'Insolvente'. Esto es una señal clara de que los problemas financieros son profundos y estructurales. Te recomiendo actuar rápidamente y buscar consejo experto en finanzas, contabilidad y posiblemente reestructuración legal. Necesitas una visión profesional para evaluar si hay alguna oportunidad de salvación o si lo más prudente es un proceso ordenado de cierre."
+    ],
+    "Crítica / Muy Débil": [
+      "Según mi análisis, la situación financiera de tu empresa parece ser crítica o muy débil. Observo un alto nivel de endeudamiento, lo cual representa una carga importante y un riesgo significativo para la sostenibilidad. Abordar esta deuda es una prioridad que requiere atención inmediata y un plan de acción.",
+      "El análisis de tus datos muestra una condición financiera muy débil, a menudo caracterizada por una dependencia significativa de la deuda para financiar operaciones o activos. Esta vulnerabilidad hace que la empresa sea sensible a fluctuaciones del mercado o incrementos en las tasas de interés. Es fundamental que tomes medidas concretas para fortalecer tu posición financiera.",
+      "Tu empresa se clasifica en un estado crítico, lo que sugiere que, si bien no está en insolvencia, la presión financiera es muy alta. Recomiendo revisar urgentemente tus pasivos totales, entender su estructura (plazos, costos) y buscar activamente formas de reducir esa carga de deuda para aliviar la presión sobre el flujo de caja.",
+      "La evaluación de tus datos indica una situación financiera muy débil. Esto puede manifestarse en ratios de liquidez ajustados y una alta proporción de deuda respecto al capital propio. Considera seriamente implementar estrategias para mejorar el flujo de caja operativo y buscar activamente opciones para reducir o refinanciar tus obligaciones financieras actuales.",
+      "El resultado de mi análisis es 'Crítica / Muy Débil'. Esto pone de manifiesto que el nivel de deuda y otras obligaciones son preocupantes en relación con la capacidad de generación de ingresos o el valor de los activos. Necesitas abordar esta situación pronto con un enfoque estratégico antes de que evolucione a un escenario más severo.",
+      "Con base en las cifras que analicé, detecto una vulnerabilidad financiera alta, clasificada como 'Crítica'. Esto implica que la empresa opera con un margen de seguridad muy bajo. Es clave que revises tu estructura de capital y evalúes si una inyección de capital o una venta de activos estratégicos podría ayudar a aliviar la presión de la deuda.",
+      "El diagnóstico arrojado por los datos es 'Crítica / Muy Débil'. Esta situación sugiere que la empresa está bajo estrés financiero significativo. Te sugiero analizar detenidamente opciones para refinanciar las deudas existentes bajo mejores términos o buscar aumentar el capital propio a través de inversión externa para fortalecer el balance.",
+      "Los indicadores financieros señalan claramente una posición financiera muy débil. El endeudamiento elevado limita la flexibilidad y aumenta el riesgo operativo y financiero. Es crucial que implementes un plan de fortalecimiento financiero, quizás enfocándote en optimizar costos, mejorar márgenes o impulsar las ventas para generar más recursos internos.",
+      "La clasificación obtenida es 'Crítica'. Esto implica que la empresa enfrenta desafíos importantes debido a su estructura financiera. Revisa con lupa tus gastos operativos, la estructura de tus deudas y busca optimizar la gestión financiera de manera urgente para liberar recursos y reducir la dependencia de la deuda.",
+      "Mi análisis sugiere que tu estado financiero es 'Crítico'. El alto endeudamiento es identificado como un riesgo importante que necesita ser gestionado activamente para evitar problemas de solvencia a futuro. Considera buscar asesoría para desarrollar un plan de acción detallado que incluya negociaciones con acreedores o búsqueda de fuentes de financiamiento alternativas.",
+      "El resultado de la evaluación es 'Crítica / Muy Débil'. Esto subraya la necesidad de mejorar la solvencia y liquidez de la empresa. Sería prudente buscar asesoría profesional para evaluar estrategias que permitan reestructurar deudas o fortalecer la posición de efectivo.",
+      "Según los datos procesados, la categoría de tu empresa es 'Crítica'. Esto indica que estás operando en un entorno de alto riesgo financiero. Es un momento crucial para tomar decisiones financieras importantes y, posiblemente, difíciles, orientadas a reducir drásticamente el riesgo de impago y mejorar la estabilidad.",
+      "La clasificación obtenida es 'Crítica / Muy Débil'. Esto sugiere que la empresa está cerca del límite de su capacidad de endeudamiento. Considera seriamente renegociar los términos de tus deudas actuales o buscar nuevas fuentes de ingreso o capital para mejorar tu perfil de riesgo.",
+      "Con los indicadores actuales, detecto una situación de riesgo elevado, clasificada como 'Crítica'. Esto te expone a serias dificultades si las condiciones del mercado empeoran. Analiza tus finanzas a fondo, identifica los puntos más vulnerables y busca apoyo profesional si consideras que necesitas una guía experta para trazar una estrategia de recuperación.",
+      "El análisis arroja un resultado de 'Crítica / Muy Débil'. Esto te señala áreas clave donde enfocarte: reducir deudas es prioritario, así como mejorar la eficiencia operativa para liberar recursos. Un plan de mejora del flujo de caja también sería muy beneficioso en esta situación."
+    ],
+    "Vulnerable / Débil": [
+      "Basado en los datos, la empresa parece estar en una posición vulnerable o débil. Esto indica que, si bien no hay una crisis inmediata, el nivel de endeudamiento es considerable y merece tu atención proactiva para evitar problemas a futuro. Hay espacio para mejorar la estructura financiera.",
+      "El análisis de tus datos sugiere una condición financiera clasificada como débil. Esto implica que la relación entre tus deudas y activos, o tus ingresos y el servicio de la deuda, no es tan robusta como podría ser. Sería muy beneficioso revisar tus obligaciones y buscar maneras de fortalecer el patrimonio neto de la empresa para ganar mayor estabilidad y resiliencia.",
+      "Tu empresa se clasifica actualmente como 'Vulnerable / Débil'. Esta categoría señala que hay ciertos puntos de fragilidad en tu estructura financiera, particularmente en la gestión de deudas y la solidez de los activos. Es un buen momento para identificar y trabajar en estas áreas para mejorar.",
+      "La evaluación indica una situación financiera débil. Esto puede significar que dependes en cierta medida de la deuda para operar. Considera buscar formas estratégicas de reducir esa dependencia y mejorar tu capacidad de generar efectivo internamente, lo cual te dará más flexibilidad y seguridad.",
+      "El resultado de mi análisis es 'Vulnerable / Débil'. Esto te indica que es momento de revisar tu estrategia de financiamiento y operaciones para reducir riesgos y fortalecer tu posición. Pequeños ajustes ahora pueden prevenir problemas mayores en el futuro.",
+      "Con base en las cifras, detecto cierta vulnerabilidad financiera en la estructura de tu empresa. Si bien no es alarmante, sería recomendable trabajar de forma proactiva en disminuir el nivel de endeudamiento general para liberar recursos y reducir la exposición a posibles fluctuaciones económicas o de tasas de interés.",
+      "El diagnóstico arrojado por los datos es 'Vulnerable / Débil'. Esto sugiere que es un buen momento para detenerte y optimizar la estructura de capital de tu empresa. Evalúa la relación entre deuda y capital propio, y busca maneras de fortalecer el balance general para mejorar la percepción de riesgo y la capacidad de acceso a financiación futura.",
+      "Los indicadores muestran una posición financiera clasificada como débil. Esto podría ser resultado de un nivel de endeudamiento considerable o márgenes ajustados. Podrías explorar activamente formas de aumentar la rentabilidad de tus operaciones o implementar estrategias para reducir pasivos de manera eficiente.",
+      "La clasificación es 'Vulnerable'. Esto significa que tu empresa tiene ciertas exposiciones al riesgo que podrían manejarse mejor. Hay oportunidades claras para mejorar la gestión financiera, quizás optimizando la relación entre activos y pasivos, para reducir la exposición general al riesgo.",
+      "Mi análisis sugiere un estado financiero 'Vulnerable / Débil'. Esto indica que tienes margen de mejora en aspectos como la solvencia y la liquidez a mediano plazo. Considera desarrollar estrategias graduales para fortalecer estos indicadores y construir una base financiera más sólida para el crecimiento futuro.",
+      "El resultado es 'Vulnerable / Débil'. Esto te invita a analizar si tu nivel de deuda actual es óptimo y sostenible en el largo plazo. Busca activamente maneras de optimizarlo, quizás reestructurando deudas menores o explorando opciones de pago anticipado si tu flujo de caja lo permite.",
+      "Según los datos procesados, la categoría de tu empresa es 'Vulnerable'. Esto sugiere que es un buen momento para hacer una revisión interna de tus gastos operativos y evaluar la eficiencia general de tus procesos. Pequeñas mejoras en estos ámbitos pueden traducirse en una posición financiera más fuerte.",
+      "La clasificación obtenida es 'Vulnerable / Débil'. Esto te señala la necesidad de buscar formas de fortalecer tu posición financiera para que la empresa pueda resistir mejor imprevistos económicos o cambios en el mercado. Construir reservas o reducir pasivos son estrategias clave.",
+      "Con los indicadores actuales, detecto una situación que requiere precaución y se clasifica como 'Vulnerable'. Por ejemplo, revisar tus políticas de crédito y cobranza podría mejorar tu flujo de efectivo y reducir la necesidad de endeudamiento a corto plazo. Es un buen momento para ajustes preventivos.",
+      "El análisis arroja el resultado de 'Vulnerable / Débil'. Esto indica que tu empresa podría beneficiarse significativamente de una revisión completa de tu estrategia financiera general. Un enfoque proactivo en la gestión de deuda, activos y flujo de caja puede llevarte a una posición mucho más fuerte en el futuro."
+    ],
+    "Estable / Regular": [
+      "¡Buenas noticias! La situación financiera de tu empresa parece ser estable o regular. Esto indica que, en general, hay un buen equilibrio entre tus activos y pasivos, y que la empresa está manejando sus obligaciones financieras de manera adecuada, aunque con un nivel de deuda moderado que se mantiene bajo control.",
+      "El análisis de tus datos indica una condición financiera clasificada como regular. Esto significa que la empresa está operando de forma solvente y líquida, manejando su deuda actual sin mayores problemas, lo cual es positivo. Sin embargo, siempre hay espacio para optimizar y fortalecer aún más esa posición.",
+      "Tu empresa se clasifica actualmente como 'Estable / Regular'. Esta es una posición financiera razonable y saludable, demostrando que la empresa puede cumplir con sus compromisos. No obstante, es importante mantener una vigilancia constante sobre el endeudamiento para asegurar que no crezca de forma desproporcionada.",
+      "La evaluación de tus datos muestra una situación financiera estable. Esto refleja una gestión prudente de tus recursos y obligaciones. Continúa aplicando estas buenas prácticas de gestión financiera para mantener el equilibrio y asegurar la sostenibilidad a largo plazo.",
+      "El resultado de mi análisis es 'Estable / Regular'. Esto sugiere que la empresa se encuentra en un estado de equilibrio financiero, donde los ingresos y activos son adecuados para cubrir los pasivos actuales. Es una base sólida desde la cual puedes operar con relativa tranquilidad.",
+      "Con base en las cifras que analicé, detecto una estabilidad financiera adecuada. Esto es un punto fuerte. La clave ahora es mantener un buen control sobre tus niveles de deuda para que sigan siendo manejables y asegurar que tu flujo de caja sea robusto para afrontar cualquier eventualidad.",
+      "El diagnóstico arrojado por los datos es 'Estable / Regular'. Esto indica que la gestión financiera de tu empresa parece ir por buen camino, logrando un balance saludable. ¡Sigue así con el monitoreo constante de tus indicadores clave para mantener este buen desempeño!",
+      "Los indicadores muestran una posición financiera estable y con un nivel de endeudamiento controlado. Esto es un buen punto de partida y te ofrece la flexibilidad necesaria para considerar futuras inversiones o estrategias de crecimiento, siempre abordándolas con cautela para no desequilibrar tu posición actual.",
+      "La clasificación obtenida es 'Estable'. Esto significa que tu empresa demuestra una capacidad sólida para manejar sus obligaciones financieras actuales sin un riesgo excesivo. Es un indicador positivo de una gestión financiera responsable y consistente.",
+      "Mi análisis sugiere un estado financiero 'Estable / Regular'. Esto te posiciona en una base sólida desde la cual puedes operar con confianza. Considera periódicamente si hay oportunidades para optimizar tu estructura de capital o mejorar la eficiencia para fortalecer aún más tu posición.",
+      "El resultado es 'Estable / Regular'. La relación entre tus activos, pasivos y capital propio parece estar dentro de límites manejables y saludables. Mantener este equilibrio es clave para la sostenibilidad y el crecimiento a futuro.",
+      "Según los datos procesados, la categoría de tu empresa es 'Estable'. ¡Excelente trabajo manteniendo este equilibrio financiero saludable! Esto te da una base firme para planificar el futuro de tu negocio.",
+      "La clasificación obtenida es 'Estable / Regular'. Sigue monitoreando tus indicadores clave de rendimiento financiero de forma periódica para detectar cualquier cambio a tiempo y asegurar que la empresa se mantenga en esta posición saludable.",
+      "Con los indicadores actuales, detecto una situación financiera 'Estable'. Continúa aplicando estas buenas prácticas de gestión que te han llevado a esta posición. La disciplina financiera es clave para mantener la salud a largo plazo.",
+      "El análisis arroja un resultado de 'Estable / Regular'. Esto confirma que tu empresa muestra una solvencia adecuada en el presente. Tienes la capacidad para cumplir con tus compromisos, lo cual es un pilar fundamental para la confianza y el crecimiento."
+    ],
+    "Sólida / Buena": [
+      "¡Excelentes noticias! Basado en los datos que me diste, la situación financiera de tu empresa parece ser sólida o buena. Esto se refleja en un nivel de endeudamiento bajo y una estructura de capital robusta. ¡Tienes una base muy saludable que te da tranquilidad y flexibilidad!",
+      "El análisis de tus datos indica una muy buena condición financiera. Esto significa que tu empresa tiene una estructura de capital fuerte, con activos significativos en comparación con tus deudas, lo cual minimiza el riesgo y maximiza la autonomía. ¡Vas por muy buen camino!",
+      "Tu empresa se clasifica como 'Sólida / Buena' según el análisis. ¡Felicidades por esta excelente gestión financiera! Mantener un bajo nivel de deuda y una buena liquidez te posiciona muy bien para el futuro.",
+      "La evaluación de tus datos muestra una situación financiera sólida y saludable. Esto no solo es positivo para la estabilidad actual, sino que también abre puertas para futuras oportunidades de inversión o expansión. ¡Realmente una gestión admirable!",
+      "El resultado de mi análisis es 'Sólida / Buena'. La empresa demuestra una fortaleza financiera envidiable y un bajo riesgo asociado a la deuda. Esto es resultado de una gestión financiera acertada y te da una ventaja competitiva.",
+      "Con base en las cifras, detecto una solidez financiera notable en tu empresa. Tienes una excelente capacidad para afrontar tus obligaciones financieras sin dificultades. Esto es un testimonio de una planificación y ejecución financiera efectiva.",
+      "El diagnóstico arrojado por los datos es 'Sólida / Buena'. ¡Muy bien manejadas las finanzas! Esta posición te permite tener un mayor control sobre el destino de tus recursos y te protege mejor ante imprevistos económicos.",
+      "Los indicadores muestran una posición financiera fuerte y con bajo endeudamiento. ¡Esto es excelente! Significa que tu empresa genera suficientes recursos y gestiona sus pasivos de forma eficiente, creando una base sólida para el crecimiento futuro.",
+      "La clasificación obtenida es 'Sólida'. Esto coloca a tu empresa en una posición financiera envidiable dentro de tu sector. Mantén este enfoque en la disciplina financiera para preservar y potenciar esta fortaleza.",
+      "Mi análisis sugiere un estado financiero 'Sólido / Bueno'. Esta solidez no solo asegura la estabilidad actual, sino que también te da una gran flexibilidad para considerar inversiones estratégicas, fusiones, adquisiciones o cualquier otra iniciativa que impulse el crecimiento.",
+      "El resultado es 'Sólida / Buena'. El bajo nivel de deuda en relación con tus activos y capital es un indicador muy positivo de salud financiera y te proporciona un margen de seguridad considerable.",
+      "Según los datos procesados, la categoría de tu empresa es 'Sólida'. ¡Tu gestión financiera es muy buena y se refleja en esta excelente salud económica! Sigue aplicando las prácticas que te han llevado a este punto.",
+      "La clasificación obtenida es 'Sólida / Buena'. Mantener estas buenas prácticas financieras de control de deuda y fortaleza de capital es fundamental para sostener el éxito a largo plazo y construir una empresa aún más robusta.",
+      "Con los indicadores actuales, detecto una situación financiera 'Sólida'. ¡Este es un gran indicador de salud empresarial y te da una posición de ventaja! Úsala sabiamente para consolidar tu crecimiento.",
+      "El análisis arroja un resultado de 'Sólida / Buena'. Tu empresa demuestra una excelente capacidad de pago y solvencia. Esto genera confianza en inversionistas y entidades financieras, facilitando futuras operaciones si las necesitas."
+    ],
+    "Excelente / Muy Sólida": [
+      "¡Resultados extraordinarios! Según mi análisis, la situación financiera de tu empresa es excelente o muy sólida. Esto se caracteriza por un nivel de deuda mínimo o prácticamente inexistente y una solidez financiera excepcional. ¡Realmente una gestión impecable que te coloca en una posición de élite!",
+      "El análisis de tus datos indica una condición financiera muy sólida, casi perfecta. Tienes una estructura de capital sumamente robusta y tus activos superan ampliamente cualquier pasivo. ¡Una gestión impecable que merece todas las felicitaciones!",
+      "Tu empresa se clasifica como 'Excelente / Muy Sólida'. ¡Este es el nivel más alto de salud financiera! Un ejemplo a seguir en términos de prudencia y eficiencia en el manejo de recursos. ¡Un logro impresionante!",
+      "La evaluación de tus datos muestra una situación financiera excelente. Esto refleja una disciplina financiera excepcional y una capacidad de generación de riqueza sobresaliente. ¡Felicitaciones por este gran logro que te da una libertad financiera envidiable!",
+      "El resultado de mi análisis es 'Excelente / Muy Sólida'. La empresa goza de una fortaleza financiera inigualable, con un riesgo financiero prácticamente nulo debido al mínimo endeudamiento. Esta posición te da una ventaja competitiva enorme y una tranquilidad operativa total.",
+      "Con base en las cifras, detecto una solidez financiera excepcional. Tu capacidad para afrontar cualquier obligación financiera es inmensa. Esto es el resultado de años de gestión acertada y te posiciona como líder en salud financiera.",
+      "El diagnóstico arrojado por los datos es 'Excelente / Muy Sólida'. ¡Tu manejo financiero es sobresaliente y se nota! Pocas empresas alcanzan este nivel de autonomía y bajo riesgo. Es un testimonio de una estrategia y ejecución perfectas.",
+      "Los indicadores muestran una posición financiera inmejorable. Un nivel de endeudamiento casi inexistente combinado con una gran solidez de activos. ¡Simplemente fantástico! Tienes el control total sobre tus finanzas.",
+      "La clasificación obtenida es 'Excelente'. Estás en la mejor categoría posible en términos de solvencia, liquidez y estructura de capital. Esto no solo te protege, sino que te da un poder de negociación y una capacidad de crecimiento sin igual.",
+      "Mi análisis sugiere un estado financiero 'Excelente / Muy Sólido'. Esto te da una gran ventaja competitiva y una libertad estratégica enorme. Puedes invertir, expandirte o afrontar cualquier desafío con una base financiera inquebrantable.",
+      "El resultado es 'Excelente / Muy Sólida'. Un nivel de deuda tan bajo o nulo en relación con la solidez de tus activos es algo admirable y poco común. Refleja una gestión maestra de los recursos.",
+      "Según los datos procesados, la categoría de tu empresa es 'Excelente'. ¡Un manejo financiero ejemplar que debería ser estudiado! Mantén este nivel de excelencia, es el pilar de un crecimiento sostenible y seguro.",
+      "La clasificación obtenida es 'Excelente / Muy Sólida'. ¡Sigue así! Este nivel de salud financiera es un gran indicador de que la empresa está en el camino correcto y gestionada con la máxima eficiencia.",
+      "Con los indicadores actuales, detecto una situación financiera 'Excelente'. ¡Pocas empresas logran este nivel de solidez y autonomía financiera! Es un logro mayúsculo que te abre un abanico de posibilidades.",
+      "El análisis arroja un resultado de 'Excelente / Muy Sólida'. Tu empresa demuestra una autonomía financiera total y una capacidad de pago superlativa. Esto te permite operar con la máxima flexibilidad y seguridad en cualquier escenario."
+    ]
+  },
+  "informacion_chatbot": {
+    "descripcion_general": "¡Hola! Soy un chatbot diseñado para ayudarte a realizar una evaluación preliminar de la salud financiera de tu empresa. Para ello, te haré algunas preguntas clave de forma secuencial. Una vez tenga toda la información, utilizaré un modelo para darte una clasificación general que va desde 'Insolvente' hasta 'Excelente'. \n\nLas preguntas que te haré son:\n1. Nombre de la empresa.\n2. Área o categoría principal de actividad (ej: 'Agricultura', 'Tecnología', 'Comercio al por menor').\n3. Número total de empleados.\n4. Valor aproximado de los ingresos anuales O el valor total de los activos (puedes darme cualquiera de los dos, el que te sea más fácil).\n5. Valor aproximado de la cartera o cuentas por cobrar a clientes.\n6. Valor aproximado de las deudas totales (bancarias, proveedores, etc.).\n\n**¿Cómo responder?**\nTrata de ser lo más claro y directo posible. \n* **Buen ejemplo (Ingresos):** \"Tuvimos ingresos por unos 500 millones de pesos el año pasado\" o \"Aproximadamente 150 mil dólares\".\n* **Buen ejemplo (Categoría):** \"Somos del sector construcción\" o \"Nos dedicamos al desarrollo de software\".\n* **Mal ejemplo (Ingresos):** \"Pues más o menos bien, creo\" (No da un valor)\n* **Mal ejemplo (Categoría):** \"Hacemos varias cosas\" (Muy vago)\n\n¡Empecemos cuando quieras!",
+    "terminos_economicos": [
+      {
+        "termino": "Activos",
+        "definicion": "Son todos los bienes y derechos que posee una empresa y que tienen valor económico. Incluye cosas como el dinero en efectivo, cuentas por cobrar, inventarios, maquinaria, edificios, etc."
+      },
+      {
+        "termino": "Pasivos",
+        "definicion": "Representan todas las deudas y obligaciones que tiene la empresa con terceros (bancos, proveedores, empleados, gobierno). Es lo que la empresa debe."
+      },
+      {
+        "termino": "Patrimonio Neto",
+        "definicion": "Es el valor residual de los activos de la empresa una vez deducidos todos sus pasivos. Representa la inversión de los dueños o accionistas. Se calcula como: Activos - Pasivos."
+      },
+      {
+        "termino": "Ingresos Anuales",
+        "definicion": "Es el monto total de dinero que la empresa generó por sus ventas o actividades principales durante un año completo."
+      },
+      {
+        "termino": "Gastos",
+        "definicion": "Son los desembolsos de dinero que realiza la empresa para poder operar y generar ingresos (ej: salarios, alquiler, materias primas, publicidad)."
+      },
+      {
+        "termino": "Deudas",
+        "definicion": "Se refiere al total de dinero que la empresa debe a otros, incluyendo préstamos bancarios, créditos con proveedores, impuestos pendientes, etc. Es sinónimo de Pasivos Totales."
+      },
+      {
+        "termino": "Cartera / Cuentas por Cobrar",
+        "definicion": "Es el dinero que los clientes le deben a la empresa por ventas de bienes o servicios que ya se entregaron pero aún no se han pagado."
+      },
+      {
+        "termino": "Liquidez",
+        "definicion": "Es la capacidad de la empresa para cumplir con sus obligaciones de deuda a corto plazo utilizando sus activos más fáciles de convertir en efectivo."
+      },
+      {
+        "termino": "Solvencia",
+        "definicion": "Es la capacidad de la empresa para cumplir con todas sus obligaciones de deuda (a corto y largo plazo) utilizando todos sus activos. Mide la salud financiera a largo plazo."
+      },
+      {
+        "termino": "Rentabilidad",
+        "definicion": "Mide la capacidad de la empresa para generar ganancias a partir de sus ventas, activos o capital invertido."
+      },
+      {
+        "termino": "Razón de Endeudamiento",
+        "definicion": "Es un indicador que compara las deudas totales con los activos totales (Deudas / Activos). Muestra qué proporción de los activos está financiada por deuda. Un ratio más alto generalmente indica mayor riesgo."
+      },
+      {
+        "termino": "Sector Económico",
+        "definicion": "Es la gran clasificación de la actividad económica (Primario: extracción de recursos naturales; Secundario: transformación/industria; Terciario: servicios; Cuaternario: conocimiento/tecnología)."
+      },
+      {
+        "termino": "Área / Categoría",
+        "definicion": "Es una descripción más específica de la actividad principal de la empresa dentro de un sector (ej: 'Agricultura' dentro del Primario, 'Desarrollo de Software' dentro del Cuaternario)."
+      },
+      {
+        "termino": "Flujo de Caja",
+        "definicion": "Es el movimiento neto de efectivo que entra y sale de la empresa durante un período. Es vital para saber si la empresa genera suficiente efectivo para operar."
+      },
+      {
+        "termino": "Punto de Equilibrio",
+        "definicion": "Es el nivel de ventas en el que la empresa no tiene ni ganancias ni pérdidas; los ingresos totales igualan a los costos totales."
+      }
+    ],
+    "explicacion_proceso_campos": {
+      "nombre_empresa": {
+        "pregunta_asociada": [
+          "¿Cuál es el nombre de tu empresa?",
+          "Para empezar, ¿podrías decirme el nombre de tu compañía?",
+          "¿Me indicas por favor cómo se llama tu negocio?",
+          "¿Cuál es la razón social o el nombre comercial que usan?",
+          "Necesito saber el nombre de la empresa que vamos a analizar.",
+          "¿Podrías darme el nombre de tu empresa?",
+          "Comencemos con lo básico: ¿cuál es el nombre de la empresa?",
+          "¿Qué nombre figura en los registros de tu compañía?",
+          "Dime, ¿cómo se llama la empresa?",
+          "¿Cuál es el nombre oficial de tu negocio?",
+          "Para identificar este análisis, ¿cuál es el nombre de la empresa?",
+          "Iniciemos con el nombre: ¿cómo se llama tu compañía?",
+          "Por favor, indícame el nombre de la empresa.",
+          "Necesito el nombre para empezar, ¿cuál es?",
+          "¿Me regalas el nombre de la empresa?"
+        ],
+        "explicacion": "Necesito el nombre simplemente para identificar el análisis y referirme a tu negocio durante la conversación.",
+        "ejemplo_respuesta": "Mi empresa se llama 'Soluciones Creativas SAS' o puedes usar el nombre comercial 'Innovatec'.",
+        "evitar": "Responder solo con siglas si no son muy conocidas, o dar nombres genéricos como 'mi negocio'."
+      },
+      "area_categoria": {
+        "pregunta_asociada": [
+          "¿A qué área o categoría principal pertenece tu empresa?",
+          "¿Cuál es el sector o rubro principal de tu negocio?",
+          "¿En qué industria opera principalmente tu compañía?",
+          "¿Podrías describirme brevemente la actividad principal de la empresa?",
+          "¿Cuál es el campo de acción principal de tu negocio?",
+          "¿A qué se dedica principalmente tu empresa?",
+          "Necesito saber el área de negocio, ¿cuál es?",
+          "¿En qué categoría clasificarías tu actividad principal?",
+          "¿Cuál es el sector económico de tu compañía?",
+          "Indícame por favor el área principal de operación.",
+          "¿Cuál es la naturaleza principal de tu negocio?",
+          "¿A qué actividad económica se dedica tu empresa?",
+          "Dime el rubro o categoría de tu compañía.",
+          "¿Cuál es tu principal línea de negocio o servicio?",
+          "¿En qué sector industrial o de servicios se ubica tu empresa?"
+        ],
+        "explicacion": "Saber el área (ej: 'Construcción', 'Educación', 'Software') nos ayuda a entender el contexto de tu negocio y compararlo con empresas similares, ya que los indicadores financieros varían entre industrias.",
+        "ejemplo_respuesta": "'Nos dedicamos principalmente a la consultoría ambiental.' o 'Somos una empresa de transporte de carga.'",
+        "evitar": "Ser demasiado general como 'servicios' o listar muchas actividades secundarias. Enfócate en la principal."
+      },
+      "numero_empleados": {
+        "pregunta_asociada": [
+          "¿Cuántos empleados tiene la empresa aproximadamente?",
+          "¿Cuál es el número total de trabajadores en tu compañía?",
+          "¿Me podrías indicar la cantidad de personas que trabajan allí?",
+          "¿Cuánta gente conforma la plantilla de la empresa?",
+          "Necesito saber el número aproximado de empleados, ¿cuántos son?",
+          "¿Cuál es el tamaño del equipo en términos de empleados?",
+          "Indícame el número de colaboradores que tiene la empresa.",
+          "¿Cuántos empleados figuran en la nómina actualmente?",
+          "¿Me das una cifra aproximada del personal contratado?",
+          "¿Cuántas personas trabajan regularmente en el negocio?",
+          "¿Cuál es la cantidad total de empleados?",
+          "¿Aproximadamente, cuántos trabajadores tiene la empresa?",
+          "¿Podrías decirme el número de empleados?",
+          "¿Cuántos miembros tiene el equipo de trabajo?",
+          "Necesito el dato del número de empleados, por favor."
+        ],
+        "explicacion": "El número de empleados nos da una idea clara del tamaño y la escala operativa de tu empresa. Es un factor importante para contextualizar los otros valores financieros.",
+        "ejemplo_respuesta": "'Actualmente somos 25 personas.' o 'Tenemos unos 150 empleados.'",
+        "evitar": "Dar rangos muy amplios como 'entre 10 y 100'. Intenta dar un número aproximado."
+      },
+      "valor_ingresos": {
+        "pregunta_asociada": [
+          "¿Cuál fue el valor aproximado de los ingresos anuales el último año?",
+          "¿Podrías decirme cuánto facturó la empresa el año pasado, más o menos?",
+          "¿Cuáles fueron los ingresos totales anuales recientes?",
+          "Necesito el dato de ingresos anuales, ¿cuál fue la cifra aproximada?",
+          "¿Cuál fue el volumen de ventas anual del último ejercicio?",
+          "¿Me indicas los ingresos brutos anuales aproximados?",
+          "¿Cuánto dinero entró por ventas el año pasado?",
+          "¿Cuál es la cifra de facturación anual estimada?",
+          "Dame un valor aproximado de los ingresos generados en el último año.",
+          "¿Qué nivel de ingresos anuales maneja la empresa?",
+          "¿Podrías compartir la cifra de ventas anuales más reciente?",
+          "¿Cuál fue la facturación total del año anterior?",
+          "Necesito saber los ingresos anuales para el análisis.",
+          "¿Valor aproximado de ingresos por ventas del último año?",
+          "¿Cuánto generó la empresa en ingresos durante los últimos 12 meses?"
+        ],
+        "explicacion": "Los ingresos anuales son un indicador clave del volumen de negocio y la actividad comercial de la empresa. Nos muestra cuánto dinero generó la empresa por sus operaciones principales.",
+        "ejemplo_respuesta": "'Facturamos cerca de 800 millones de pesos el año pasado.' o 'Unos 250,000 dólares en ingresos.'",
+        "evitar": "Confundir ingresos (ventas) con ganancias (beneficio neto). Solo necesito el total de ventas."
+      },
+      "valor_activos": {
+        "pregunta_asociada": [
+          "Si no tienes los ingresos, ¿cuál es el valor aproximado del total de activos?",
+          "Alternativamente, ¿cuál es el valor total estimado de los activos de la empresa?",
+          "¿Podrías darme una cifra aproximada del valor total de los bienes y derechos de la compañía?",
+          "¿A cuánto ascienden los activos totales de la empresa, más o menos?",
+          "Necesito el valor total de los activos, ¿cuál es la cifra aproximada?",
+          "¿Cuál es el valor contable o de mercado aproximado de todos los activos?",
+          "Indicame el valor total de lo que posee la empresa (activos).",
+          "¿Aproximadamente, cuánto valen todos los activos de tu negocio?",
+          "Dame una estimación del valor total de los activos.",
+          "¿Cuál es la cifra total de activos que maneja la empresa?",
+          "Si no tienes los ingresos, ¿puedes darme el valor de los activos?",
+          "¿Valor total aproximado de los activos (maquinaria, edificios, efectivo, cuentas por cobrar, etc.)?",
+          "¿Podrías compartir el valor estimado de los activos totales?",
+          "Necesito saber el valor de los activos para el análisis.",
+          "¿Cuál es el monto total aproximado de los activos de tu compañía?"
+        ],
+        "explicacion": "Los activos totales representan todo lo que la empresa posee (efectivo, maquinaria, edificios, cuentas por cobrar, etc.). Este valor nos da una medida del tamaño financiero de la empresa y es fundamental para calcular indicadores de solvencia y endeudamiento.",
+        "ejemplo_respuesta": "'Nuestros activos suman alrededor de 1.200 millones de pesos.' o 'Tenemos activos por valor de 500 mil euros.'",
+        "evitar": "Incluir solo un tipo de activo (ej: 'la maquinaria vale tanto'). Necesito el valor total aproximado de TODO lo que posee la empresa."
+      },
+      "valor_cartera": {
+        "pregunta_asociada": [
+          "¿Cuál es el valor aproximado de la cartera o cuentas por cobrar?",
+          "¿Cuánto dinero le deben los clientes a la empresa actualmente?",
+          "¿Podrías indicarme el saldo pendiente de cobro a clientes?",
+          "¿A cuánto ascienden las cuentas por cobrar?",
+          "Necesito saber el valor de la cartera, ¿cuál es la cifra aproximada?",
+          "¿Qué monto tienen pendiente de pago tus clientes?",
+          "¿Cuál es el valor estimado de la cartera de clientes?",
+          "Dame una cifra aproximada del dinero que falta por cobrar.",
+          "¿Valor total de las facturas pendientes de pago por clientes?",
+          "¿Cuánto representa la cartera en los activos de la empresa?",
+          "¿Me indicas el saldo de cuentas por cobrar?",
+          "¿Cuál es el valor aproximado de lo que te deben tus clientes?",
+          "¿Cuánto dinero tienes 'en la calle' por cobrar?",
+          "Necesito el dato del valor de la cartera, por favor.",
+          "¿Cuál es el monto de las ventas a crédito pendientes de cobro?"
+        ],
+        "explicacion": "La cartera representa el dinero que tus clientes te deben por ventas ya realizadas. Es importante para entender qué parte de tus activos está pendiente de convertirse en efectivo y evaluar la liquidez.",
+        "ejemplo_respuesta": "'Tenemos unos 80 millones de pesos pendientes por cobrar.' o 'La cartera de clientes es de 30,000 dólares.'",
+        "evitar": "Dar solo el número de clientes que deben. Necesito el valor total aproximado del dinero pendiente."
+      },
+      "valor_deudas": {
+        "pregunta_asociada": [
+          "¿Cuál es el valor aproximado de las deudas totales?",
+          "¿A cuánto ascienden todas las obligaciones financieras de la empresa?",
+          "¿Podrías indicarme el monto total de los pasivos?",
+          "¿Cuál es la deuda total (bancos, proveedores, etc.) aproximadamente?",
+          "Necesito saber el valor total de las deudas, ¿cuál es?",
+          "¿Qué cantidad de dinero debe la empresa en total?",
+          "Indicame la cifra aproximada del endeudamiento total.",
+          "¿Cuál es el valor consolidado de todas las deudas?",
+          "Dame un estimado del pasivo total de la compañía.",
+          "¿A cuánto asciende el total de obligaciones por pagar?",
+          "¿Cuál es el monto total que debe la empresa?",
+          "¿Valor aproximado de la deuda total acumulada?",
+          "¿Podrías compartir la cifra total de deudas?",
+          "Necesito el dato final: ¿cuánto debe la empresa en total?",
+          "¿Cuál es el nivel general de endeudamiento?"
+        ],
+        "explicacion": "Las deudas totales (o pasivos) son cruciales para evaluar el riesgo financiero y la solvencia de la empresa. Incluye todo lo que debes a bancos, proveedores, etc.",
+        "ejemplo_respuesta": "'Debemos cerca de 300 millones en total.' o 'Nuestras obligaciones financieras suman 90 mil dólares.'",
+        "evitar": "Mencionar solo un tipo de deuda (ej: 'el préstamo del banco es...'). Necesito el valor total aproximado de TODAS las deudas."
+      }
+    }
+  },
+  "acronimos_sociedades": [
+    {
+      "acronimo": "S.A.",
+      "significado": "Sociedad Anónima. Estructura legal donde el capital se divide en acciones y la responsabilidad de los socios está limitada al capital que han aportado. Usada comúnmente por empresas grandes o que buscan cotizar en bolsa."
+    },
+    {
+      "acronimo": "Ltda.",
+      "significado": "Sociedad de Responsabilidad Limitada. Estructura donde el capital se divide en cuotas o participaciones sociales y la responsabilidad de los socios se limita al monto de su aporte. Popular entre PYMES y negocios familiares."
+    },
+    {
+      "acronimo": "S.R.L.",
+      "significado": "Sociedad de Responsabilidad Limitada (o Società a Responsabilità Limitata en italiano). Equivalente conceptual a la 'Ltda.' en muchos países, especialmente en Europa y América Latina."
+    },
+    {
+      "acronimo": "S.A.S.",
+      "significado": "Sociedad por Acciones Simplificada. Una figura legal más moderna y flexible, con capital dividido en acciones y responsabilidad limitada de los socios, que ofrece procedimientos de constitución y gestión más sencillos. Muy popular entre emprendedores."
+    },
+    {
+      "acronimo": "Inc.",
+      "significado": "Incorporated (Incorporada). Usado comúnmente en Estados Unidos y otros países para referirse a una corporación, equivalente a una Sociedad Anónima."
+    },
+    {
+      "acronimo": "Corp.",
+      "significado": "Corporation (Corporación). Similar a 'Inc.', también usado en Estados Unidos y otros países para referirse a una sociedad anónima o corporación."
+    },
+    {
+      "acronimo": "LLC",
+      "significado": "Limited Liability Company (Compañía de Responsabilidad Limitada). Figura muy común en Estados Unidos que combina la flexibilidad de una sociedad de personas con la responsabilidad limitada de una corporación (similar a una Ltda./SRL)."
+    },
+    {
+      "acronimo": "PLC",
+      "significado": "Public Limited Company (Compañía Pública Limitada). Equivalente a una S.A. de capital abierto (que puede cotizar en bolsa) en el Reino Unido e Irlanda."
+    }
+  ]
+}
