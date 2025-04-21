@@ -27,7 +27,6 @@ BASE_FEATURES = [
 ]
 TARGET_COLUMN = 'Nivel Economico'
 
-# Opcional: Guardar juntos
 BUNDLE_PATH = 'Data/model_bundle_nivel_economico.joblib'
 
 

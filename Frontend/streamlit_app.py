@@ -7,6 +7,9 @@ pages = {
     ],
     "Explicaciones": [
         st.Page("explanation.py", title="Explicación del Chatbot"),
+        st.Page("explanation_train_lightgbm.py", title="Entrenamiento para LightGBM"),
+        st.Page("explanation_dataset_lightgbm.py", title="Dataset para LightGBM"),
+        
     ],
 }
 
