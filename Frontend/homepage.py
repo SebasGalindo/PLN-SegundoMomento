@@ -26,4 +26,4 @@ st. markdown("""
             
             """)
 
-st.write("Link Del Repositorio: https://github.com/SebasGalindo/AGSegundoMomento")
+st.write("Link Del Repositorio: https://github.com/SebasGalindo/PLN-SegundoMomento/")

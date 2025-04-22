@@ -1,19 +1,17 @@
-# chatbot_streamlit.py
+
 import streamlit as st
 import time
 
-# Importa las funciones y estado inicial del módulo refactorizado
-# Asegúrate de que chatbot_logic.py esté en el mismo directorio o en PYTHONPATH
 try:
     import Backend.chatbot_logic as bot
-except ModuleNotFoundError:
-    st.error("Error: No se encontró el archivo 'chatbot_logic.py'. Asegúrate de que esté en el mismo directorio.")
+except ModuleNotFoundError as e:
+    st.error("Error: No se encontró el archivo 'chatbot_logic.py'. Asegúrate de que esté en el mismo directorio.", e)
     st.stop()
 except Exception as e:
-    # Mostrar un error más detallado durante el desarrollo puede ser útil
+
     st.error(f"Error al cargar 'chatbot_logic.py': {e}")
     import traceback
-    st.error(traceback.format_exc()) # Muestra el traceback completo
+    st.error(traceback.format_exc()) 
     st.stop()
 
 
@@ -22,18 +20,15 @@ st.set_page_config(page_title="Chatbot Financiero", layout="centered")
 st.title("🤖 Chatbot Financiero")
 st.caption("Impulsado por Modelos de IA para análisis preliminar")
 
-# --- Barra Lateral con Botón de Reinicio ---
+
 st.sidebar.title("Opciones")
 if st.sidebar.button("✨ Nuevo Chat"):
-    # Reiniciar el estado de la sesión y el historial
+
     st.session_state.chat_history = []
     st.session_state.chatbot_state = bot.get_initial_state()
-    # Obtener el primer mensaje del bot para el nuevo chat
     initial_bot_message, updated_state = bot.get_initial_message(st.session_state.chatbot_state)
     st.session_state.chatbot_state = updated_state # Actualizar estado con last_question_field, etc.
-    # Añadir el primer mensaje del bot al historial vacío
     st.session_state.chat_history.append({"role": "assistant", "content": initial_bot_message})
-    # Forzar la re-ejecución del script para reflejar el reinicio
     st.rerun()
 
 # --- Inicialización del Estado de la Sesión (Solo la primera vez) ---
@@ -100,8 +95,3 @@ if user_input:
         error_message = f"¡Ups! Ocurrió un error interno en el bot: {e}"
         st.error(error_message)
         st.session_state.chat_history.append({"role": "assistant", "content": error_message})
-        # Opcional: Mostrar traceback para depuración
-        # import traceback
-        # st.error(traceback.format_exc())
-
-# --- Fin del archivo chatbot_streamlit.py ---

@@ -131,11 +131,6 @@ st.code("""
 st.subheader("4. Guardado del Dataset (`guardar_csv`) y Ejecución Principal")
 
 st.markdown("""
-La función `guardar_csv` simplemente toma el DataFrame final (con los datos generados, las métricas calculadas y el 'Nivel Economico' asignado) y lo guarda en un archivo CSV (`empresas_categorizadas.csv` por defecto). El bloque `if __name__ == "__main__":` orquesta todo el proceso: llama a `leer_categorias`, luego a `generar_dataset_empresas`, después a `categorizar_empresas` y finalmente a `guardar_csv`. También imprime información útil como las primeras filas del resultado, la distribución de las categorías generadas y un conteo cruzado por sector y nivel económico para verificar la coherencia de los datos producidos.
+La función `guardar_csv` simplemente toma el DataFrame final (con los datos generados, las métricas calculadas y el 'Nivel Economico' asignado) y lo guarda en un archivo CSV (`empresas_categorizadas.csv` por defecto).
 """)
 
-st.header("Conclusión e Impacto en el Chatbot")
-
-st.success("""
-El script `generate_dataset.py` es esencialmente el **generador de la "verdad fundamental" (ground truth)** para el entrenamiento del modelo de clasificación del chatbot. Al crear datos sintéticos y aplicar reglas financieras explícitas (basadas en Patrimonio Neto y Razón de Endeudamiento ajustada por sector), produce el dataset (`empresas_categorizadas.csv`) que enseña al modelo de Machine Learning (en `train_company_classification.py`) a **inferir el 'Nivel Económico' a partir de las características básicas de una empresa**. La calidad y coherencia de las reglas y los datos generados aquí impactan directamente en la capacidad del modelo final para realizar clasificaciones precisas y útiles dentro del chatbot.
-""")

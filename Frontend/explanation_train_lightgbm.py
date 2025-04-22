@@ -128,3 +128,6 @@ st.header("Conclusión")
 st.success("""
 **El script `train_company_classification.py` es el responsable de crear y guardar el "cerebro" de clasificación (el modelo LightGBM) que el chatbot financiero utiliza para determinar el 'Nivel Económico' de una empresa una vez que ha recopilado toda la información necesaria del usuario. Su correcta ejecución y la generación del archivo `model_bundle_nivel_economico.joblib` son fundamentales para la funcionalidad final del chatbot.**
 """)
+
+st.write("El resultado usado para el chatbot se entrenó con 15 mil datos de empresas y generó los siguientes resultados:")
+st.image("Data/matriz_confusion_lightgbm.png", caption="Resultados del entrenamiento del modelo LightGBM para clasificar el 'Nivel Económico' de empresas expresado en la matriz de confusión.", use_container_width=True)
