@@ -37,7 +37,7 @@ LGBM_MODEL_PATH = DATA_DIR / "model_bundle_nivel_economico.joblib"
 QUESTIONS_ANSWERS_PATH = DATA_DIR / "questions_and_answers_markdown.json" # Manteniendo tu ruta
 CATEGORIES_PATH = DATA_DIR / "Categorias-Empresa.txt"
 
-# Modelos y Constantes (Sin cambios)
+# Modelos y Constantes 
 MODELO_INTENCION = str(INTENT_MODEL_DIR)
 MODELO_NER = str(NER_MODEL_DIR)
 MODELO_SPACY = "es_core_news_lg"
@@ -229,7 +229,7 @@ print("\n--- Todos los recursos cargados exitosamente ---")
 # tu versión original de chatbot_logic.py)
 
 def predict_intent(text):
-    # (Sin cambios)
+    # 
     inputs = intent_tokenizer(text, return_tensors="pt", truncation=True, padding="max_length", max_length=MAX_LEN_BERT)
     inputs = {k: v.to(device) for k, v in inputs.items()}
     with torch.no_grad():
@@ -239,7 +239,7 @@ def predict_intent(text):
     return intent_id2label.get(predicted_class_id, "Intencion Desconocida")
 
 def predict_ner(text):
-    # (Sin cambios)
+    # 
     inputs = ner_tokenizer(text, return_tensors="pt", padding="max_length", truncation=True, max_length=MAX_LEN_BERT, return_offsets_mapping=True)
     offset_mapping = inputs.pop("offset_mapping").cpu().squeeze().tolist()
     inputs = {k: v.to(device) for k, v in inputs.items()}
@@ -287,7 +287,7 @@ numeros_texto_spacy = {
 conectores_spacy = {'y', 'de'}
 
 def parse_numero(texto):
-    # (Sin cambios)
+    # 
     if not texto or not isinstance(texto, str): return None, None
     texto_original = texto; #print(f"DEBUG parse_numero: Recibido '{texto_original}'")
     texto_limpio = texto.lower().strip(); texto_limpio = re.sub(r'[$\']', '', texto_limpio); texto_limpio = re.sub(r'\s+', ' ', texto_limpio)
@@ -312,7 +312,8 @@ def parse_numero(texto):
              if token.lemma_ in ['ciento', 'cien', 'cientos']:
                  if valor_segmento > 0: valor_segmento *= 100
                  else: valor_segmento += 100
-             else: valor_segmento += numeros_texto_spacy[token.lemma_]; #print(f"    -> Detectado como palabra numérica: {numeros_texto_spacy[token.lemma_]}. valor_segmento={valor_segmento}")
+             else: 
+                 valor_segmento += numeros_texto_spacy[token.lemma_] #print(f"    -> Detectado como palabra numérica: {numeros_texto_spacy[token.lemma_]}. valor_segmento={valor_segmento}")
         if token.lemma_ in multiplicadores_spacy:
             if valor_segmento == 0: valor_segmento = 1; #print(f"    -> Multiplicador sin número previo, usando 1.")
             valor_aplicado = valor_segmento * multiplicadores_spacy[token.lemma_]; total_valor += valor_aplicado; #print(f"    -> Aplicando multiplicador '{token.lemma_}'. Sumando {valor_aplicado}. total_valor={total_valor}")
@@ -331,7 +332,7 @@ def parse_numero(texto):
         return None, None
 
 def encontrar_mejor_categoria(texto_categoria):
-    # (Sin cambios)
+    # 
     #print(f"\n--- Buscando similitud para: '{texto_categoria}' (Embeddings spaCy) ---")
     doc_usuario = nlp(texto_categoria.lower())
     if not doc_usuario.has_vector or not doc_usuario.vector_norm: return None, None, 0.0
@@ -346,7 +347,7 @@ def encontrar_mejor_categoria(texto_categoria):
 
 def get_next_question_key(contexto):
     """Devuelve la *clave* del siguiente campo requerido, o None si todo está completo."""
-    # (Sin cambios)
+    # 
     for campo in CAMPOS_REQUERIDOS:
         if campo == 'ingresos_o_activos':
              if contexto.get('valor_ingresos') is None and contexto.get('valor_activos') is None:
@@ -356,7 +357,7 @@ def get_next_question_key(contexto):
     return None
 
 def get_formatted_question(campo_key):
-    # (Sin cambios)
+    # 
     lista_preguntas = CAMPO_A_LISTA_PREGUNTAS.get(campo_key)
     if lista_preguntas and isinstance(lista_preguntas, list):
         pregunta = random.choice(lista_preguntas)
@@ -369,12 +370,12 @@ def get_formatted_question(campo_key):
     return pregunta
 
 def format_greeting(template, name=None):
-    # (Sin cambios)
+    # 
     if name: return template.replace("nombre", name)
     else: return re.sub(r'\s?nombre[!?]?', '', template).strip()
 
 def check_confirmation(text):
-    # (Sin cambios)
+    # 
     #print("\n--- Analizando Confirmación/Negación (Lema/POS) ---")
     doc = nlp(text.lower()); has_negation = False; has_affirmation = False
     for token in doc:
@@ -391,7 +392,7 @@ def check_confirmation(text):
     else: return 'unclear'
 
 def convert_to_COP(valor, moneda):
-    # (Sin cambios)
+    # 
     if moneda == 'COP' or valor is None:
         return valor
     tasa = tasas.get(f'{moneda}_COP')
@@ -404,7 +405,7 @@ def convert_to_COP(valor, moneda):
         return valor
 
 def format_data_for_lgbm(contexto):
-    # (Sin cambios)
+    # 
     try:
         valor_activo_o_ingreso = 0
         moneda_ref = DEFAULT_CURRENCY
@@ -439,7 +440,7 @@ def format_data_for_lgbm(contexto):
     except Exception as e: print(f"Error formateando datos para LightGBM: {e}"); return None
 
 def predict_lgbm(data_row):
-    # (Sin cambios)
+    # 
     try:
         for col in data_row.select_dtypes(include='category').columns:
             pass
@@ -452,19 +453,112 @@ def predict_lgbm(data_row):
         return "Error: Categoría Desconocida"
     except Exception as e: print(f"Error durante la predicción LightGBM: {e}"); return "Error en Predicción"
 
+
+
+PALABRAS_COMUNES_A_EXCLUIR = {
+    # Artículos
+    'el', 'la', 'los', 'las', 'un', 'una', 'unos', 'unas', 'lo',
+    # Preposiciones
+    'a', 'ante', 'bajo', 'cabe', 'con', 'contra', 'de', 'desde', 'durante',
+    'en', 'entre', 'hacia', 'hasta', 'mediante', 'para', 'por', 'segun',
+    'sin', 'so', 'sobre', 'tras', 'versus', 'via',
+    # Conjunciones
+    'y', 'e', 'ni', 'o', 'u', 'pero', 'mas', 'sino', 'aunque', 'porque',
+    'pues', 'como', 'si', 'que', 'cuando',
+    # Adverbios comunes
+    'aqui', 'aca', 'alli', 'ahi', 'alla', 'antes', 'despues', 'luego', 'pronto',
+    'tarde', 'temprano', 'ayer', 'hoy', 'mañana', 'siempre', 'nunca', 'jamas',
+    'ya', 'mientras', 'todavia', 'aun', 'recien', 'pronto', 'cerca', 'lejos',
+    'encima', 'debajo', 'delante', 'detras', 'enfrente', 'alrededor', 'asi',
+    'bien', 'mal', 'peor', 'mejor', 'despacio', 'deprisa', 'muy', 'mucho',
+    'poco', 'bastante', 'mas', 'menos', 'algo', 'nada', 'solo', 'tambien',
+    'tampoco', 'si', 'no', 'quizas', 'acaso', 'talvez', 'ademas', 'incluso',
+    'excepto', 'salvo', 'inclusive',
+    # Pronombres
+    'yo', 'tu', 'el', 'ella', 'usted', 'nosotros', 'nosotras', 'vosotros',
+    'vosotras', 'ellos', 'ellas', 'ustedes', 'me', 'te', 'se', 'nos', 'os',
+    'le', 'les', 'mi', 'mis', 'tu', 'tus', 'su', 'sus', 'mio', 'mios', 'mia',
+    'mias', 'tuyo', 'tuya', 'tuyos', 'tuyas', 'suyo', 'suya', 'suyos', 'suyas',
+    'nuestro', 'nuestra', 'nuestros', 'nuestras', 'vuestro', 'vuestra',
+    'vuestros', 'vuestras', 'este', 'esta', 'estos', 'estas', 'ese', 'esa',
+    'esos', 'esas', 'aquel', 'aquella', 'aquellos', 'aquellas', 'esto', 'eso',
+    'aquello', 'alguien', 'nadie', 'algo', 'nada', 'cualquier', 'cualquiera',
+    'quienquiera', 'quien', 'cual', 'cuyo',
+    # Interjecciones y Saludos (ya cubiertos en patrones, pero por si acaso)
+    'hola', 'hey', 'epa', 'oye', 'buenos', 'buenas', 'adios', 'chao', 'hasta',
+    'anda', 'vaya', 'hombre', 'mujer', 'caramba', 'ay', 'oh', 'uf', 'eh',
+    # Verbos comunes (infinitivos y algunas formas conjugadas)
+    'soy', 'eres', 'es', 'somos', 'sois', 'son', 'estoy', 'estas', 'esta',
+    'estamos', 'estais', 'estan', 'he', 'has', 'ha', 'hemos', 'habeis', 'han',
+    'ser', 'estar', 'haber', 'tener', 'hacer', 'decir', 'ir', 'ver', 'dar',
+    'saber', 'querer', 'llegar', 'pasar', 'deber', 'poner', 'parecer', 'quedar',
+    'creer', 'hablar', 'llevar', 'dejar', 'seguir', 'encontrar', 'llamar',
+    'venir', 'pensar', 'salir', 'volver', 'tomar', 'conocer', 'vivir', 'sentir',
+    'tratar', 'mirar', 'contar', 'empezar', 'esperar', 'buscar', 'entrar',
+    'trabajar', 'escribir', 'perder', 'producir', 'ocurrir', 'recibir',
+    'recordar', 'terminar', 'permitir', 'aparecer', 'conseguir', 'comenzar',
+    'servir', 'sacar', 'necesitar', 'mantener', 'resultar', 'leer', 'caer',
+    'cambiar', 'presentar', 'crear', 'abrir', 'considerar', 'oir', 'acabar',
+    'convertir', 'ganar', 'formar', 'traer', 'partir', 'morir', 'aceptar',
+    'realizar', 'suponer', 'comprender', 'lograr', 'explicar', 'preguntar',
+    'tocar', 'reconocer', 'estudiar', 'alcanzar', 'nacer', 'dirigir', 'correr',
+    'utilizar', 'pagar', 'ayudar', 'gustar', 'jugar', 'escuchar', 'levantar',
+    'intentar', 'usar',
+    # Otros comunes que pueden dar problemas
+    'favor', 'gracias', 'porfa', 'dia', 'dias', 'tarde', 'tardes', 'noche',
+    'noches', 'tal', 'como', 'va', 'numero', 'identificacion', 'nombre',
+    'llamo', 'apellido', 'aqui', 'habla', 'saluda', 'saludo', 'dice',
+    'mensaje', 'texto', 'correo', 'electronico'
+}
+
 def extract_name_from_greeting(text):
-    # (Sin cambios)
+    """
+    Extrae un nombre de una cadena de texto que puede contener saludos o introducciones.
+
+    Intenta identificar nombres basándose en patrones comunes en español,
+    evitando confundir palabras comunes (verbos, saludos, preposiciones, etc.) con nombres.
+
+    Args:
+        text (str): El texto de entrada.
+
+    Returns:
+        str or None: El nombre extraído (con su capitalización original si es posible),
+                     o None si no se encuentra un nombre probable.
+    """
+    if not text:
+        return None
+
     patterns = [
-        r'(me llamo|mi nombre es|soy)\s+([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+(?:\s+[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)*)',
-        r'(buenos días|buenas tardes|buenas noches|hola|hey|qué tal)[,]?\s*(?:soy|me llamo)?\s*([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+(?:\s+[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)*)',
-        r'([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)\s+(?:por aquí|habla|le saluda)',
-        r'^\s*([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)\b'
+        # 1. "me llamo/mi nombre es/soy [Nombre Apellido]"
+        r'(?:me\s+llamo|mi\s+nombre\s+es|soy)\s+([A-ZÁÉÍÓÚÑÜ][a-záéíóúñü]+(?:\s+[A-ZÁÉÍÓÚÑÜ][a-záéíóúñü]+)*)\b',
+        # 2. "[Saludo], [soy/me llamo/etc] [Nombre Apellido]" 
+        r'(?:buenos\s+d[íi]as|buenas\s+tardes|buenas\s+noches|hola|hey|qu[ée]\s+tal|buenas|saludos)[,]?\s*(?:soy|me\s+llamo|habla|le\s+saluda|por\s+aqu[íi])?\s*([A-ZÁÉÍÓÚÑÜ][a-záéíóúñü]+(?:\s+[A-ZÁÉÍÓÚÑÜ][a-záéíóúñü]+)*)\b',
+        # 3. "[Nombre Apellido] [habla/le saluda/por aquí]"
+        r'\b([A-ZÁÉÍÓÚÑÜ][a-záéíóúñü]+(?:\s+[A-ZÁÉÍÓÚÑÜ][a-záéíóúñü]+)*)\s+(?:habla|le\s+saluda|por\s+aqu[íi])',
+        # 4. Patrón más general al inicio (UNA o DOS palabras capitalizadas)
+        # Se usa (?:\s+[A-ZÁÉÍÓÚÑÜ][a-záéíóúñü]+)? para hacerlo opcional el segundo nombre/apellido
+        r'^\s*([A-ZÁÉÍÓÚÑÜ][a-záéíóúñü]+(?:\s+[A-ZÁÉÍÓÚÑÜ][a-záéíóúñü]+)?)\b'
     ]
-    for pattern in patterns:
+
+    for i, pattern in enumerate(patterns):
         match = re.search(pattern, text, re.IGNORECASE)
         if match:
-            nombre_potencial = match.groups()[-1].strip()
-            if nombre_potencial.lower() not in ['buenos', 'buenas', 'hola', 'soy', 'me']: return nombre_potencial
+            nombre_potencial = match.groups()[-1]
+
+            if nombre_potencial: 
+                nombre_limpio = nombre_potencial.strip()
+
+                # Validar contra la lista de exclusión
+                # Comprobar la primera palabra y el nombre completo (en minúsculas)
+                primera_palabra = nombre_limpio.split()[0].lower()
+                nombre_completo_lower = nombre_limpio.lower()
+
+                # Si ni la primera palabra ni el nombre completo 
+                if primera_palabra not in PALABRAS_COMUNES_A_EXCLUIR and \
+                   (len(nombre_limpio.split()) > 1 or nombre_completo_lower not in PALABRAS_COMUNES_A_EXCLUIR):
+                    return nombre_limpio
+
+    # Si ningún patrón funcionó o todos los candidatos fueron excluidos
     return None
 
 # --- 4. Funciones Principales para Streamlit ---
@@ -768,7 +862,7 @@ def process_user_input(user_input, current_state):
          if not state['conversation_complete'] and state['last_question_field'] and contexto.get(state['last_question_field']) is None:
               response_parts.append(f"Continuemos... {get_formatted_question(state['last_question_field'])}")
 
-    else: # Intención desconocida o no manejada explícitamente
+    else:         
         response_parts.append("No estoy seguro de entender eso.")
         if not state['conversation_complete']:
             current_field_to_ask = state.get('last_question_field')
@@ -790,15 +884,12 @@ def process_user_input(user_input, current_state):
 
 def get_final_analysis(state):
     """Realiza el análisis final y devuelve el mensaje de resultado."""
-    # (Sin cambios)
     if get_next_question_key(state['contexto']) is None:
-        #print("\n--- Realizando Análisis Final ---")
         lgbm_input_data = format_data_for_lgbm(state['contexto'])
         if lgbm_input_data is not None:
             resultado_final_label = predict_lgbm(lgbm_input_data)
             respuestas_para_resultado = plantillas_resultado_final.get(resultado_final_label, ["No pude determinar una clasificación final con los datos proporcionados."])
             respuesta_final_elegida = random.choice(respuestas_para_resultado)
-            # Formato Markdown para posible uso en Streamlit, pero funcionará en consola
             resultado = f"#### ✅💰 Resultado del Análisis Financiero Preliminar \n\n{respuesta_final_elegida}\n\n"
             resultado += random.choice(respuestas_despedida)
             return resultado

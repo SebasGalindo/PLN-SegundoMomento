@@ -272,7 +272,6 @@ else:
 
 print("\nINFO: La Tokenización es realizada internamente por los modelos BERT y spaCy.")
 
-# (predict_intent sin cambios)
 def predict_intent(text):
     inputs = intent_tokenizer(text, return_tensors="pt", truncation=True, padding="max_length", max_length=MAX_LEN_BERT)
     inputs = {k: v.to(device) for k, v in inputs.items()}
@@ -282,7 +281,6 @@ def predict_intent(text):
     predicted_class_id = torch.argmax(logits, dim=-1).item()
     return intent_id2label.get(predicted_class_id, "Intencion Desconocida")
 
-# (predict_ner ahora SIN la demo de Lema/POS)
 def predict_ner(text):
     """Predice entidades NER usando el modelo BETO #2. Devuelve lista de entidades."""
     inputs = ner_tokenizer(text, return_tensors="pt", padding="max_length", truncation=True, max_length=MAX_LEN_BERT, return_offsets_mapping=True)
@@ -314,7 +312,6 @@ def predict_ner(text):
     return entities
 
 multiplicadores_spacy = {'mil': 1000, 'millon': 1000000, 'millón': 1000000, 'millones': 1000000}
-# Añadir variaciones comunes (puedes expandir esto)
 numeros_texto_spacy = {
     'un': 1, 'uno': 1, 'dos': 2, 'tres': 3, 'tre':3, 'cuatro': 4, 'cinco': 5,
     'seis': 6, 'siete': 7, 'ocho': 8, 'nueve': 9, 'diez': 10,
@@ -343,7 +340,7 @@ def parse_numero(texto):
     texto_original = texto
     print(f"DEBUG parse_numero (spaCy): Recibido '{texto_original}'")
 
-    # 1. Limpieza inicial y extracción de moneda (igual)
+    # 1. Limpieza inicial y extracción de moneda 
     texto_limpio = texto.lower().strip()
     texto_limpio = re.sub(r'[$\']', '', texto_limpio)
     texto_limpio = re.sub(r'\s+', ' ', texto_limpio)
@@ -362,23 +359,21 @@ def parse_numero(texto):
             print(f"DEBUG parse_numero: Moneda detectada: {moneda} (palabra: '{moneda_detectada_str}')")
             break
 
-    # 2. Eliminar palabras irrelevantes/relleno (igual)
+    # 2. Eliminar palabras irrelevantes/relleno 
     relleno = ['unos', 'aproximadamente', 'cerca de', 'alrededor de', 'como', 'un total de', 'más o menos', 'de']
     for palabra_relleno in relleno:
         texto_sin_moneda = re.sub(r'\b' + re.escape(palabra_relleno) + r'\b', '', texto_sin_moneda).strip()
     texto_sin_moneda = re.sub(r'\s+', ' ', texto_sin_moneda).strip()
     print(f"DEBUG parse_numero: Texto para procesar: '{texto_sin_moneda}'")
 
-    # 3. Procesamiento con spaCy
     doc = nlp(texto_sin_moneda)
     total_valor = 0.0
-    valor_segmento = 0.0 # Acumula valor dentro de un segmento (ej: "ciento cincuenta")
+    valor_segmento = 0.0 
     segmento_con_digito = False # Flag para saber si el segmento actual contiene dígitos
 
     for token in doc:
         print(f"  Procesando Token: '{token.text}' (Lema: {token.lemma_}, like_num: {token.like_num})")
 
-        # Si el token parece un número (dígitos)
         if token.like_num:
             try:
                 # Convertir a float, reemplazando ',' por '.' y eliminando espacios
@@ -395,30 +390,26 @@ def parse_numero(texto):
                 print(f"    -> 'like_num' pero no se pudo convertir a float: '{token.text}'")
                 segmento_con_digito = False # Resetear flag si falla la conversión
                 
-        # Si es una palabra numérica conocida (y no hemos visto dígitos en este segmento)
+        # Si es una palabra numérica conocida
         if token.lemma_ in numeros_texto_spacy and not segmento_con_digito:
              # Caso especial "ciento(s)" - puede multiplicar lo anterior o ser base 100
              if token.lemma_ in ['ciento', 'cien', 'cientos']:
-                 if valor_segmento > 0: # Ej: "dos cientos" -> 2 * 100
+                 if valor_segmento > 0: 
                      valor_segmento *= 100
-                 else: # "cien" o "ciento" solo
+                 else: 
                      valor_segmento += 100
              else:
                  valor_segmento += numeros_texto_spacy[token.lemma_]
              print(f"    -> Detectado como palabra numérica: {numeros_texto_spacy[token.lemma_]}. valor_segmento={valor_segmento}")
 
-        # Si es un multiplicador (mil, millón)
         if token.lemma_ in multiplicadores_spacy:
-            # Si no se acumuló nada antes (ej. solo 'mil'), usar 1
             if valor_segmento == 0:
                 valor_segmento = 1
                 print(f"    -> Multiplicador sin número previo, usando 1.")
 
-            # Aplicar multiplicador y sumar al total
             valor_aplicado = valor_segmento * multiplicadores_spacy[token.lemma_]
             total_valor += valor_aplicado
             print(f"    -> Aplicando multiplicador '{token.lemma_}'. Sumando {valor_aplicado}. total_valor={total_valor}")
-            # Resetear para el siguiente gran segmento (ej. después de 'millones')
             valor_segmento = 0
             segmento_con_digito = False
 
@@ -426,8 +417,6 @@ def parse_numero(texto):
         # Ignorar conectores y otras palabras
         if token.lemma_ not in conectores_spacy and not (token.lemma_ in numeros_texto_spacy or token.lemma_ in multiplicadores_spacy or token.like_num):
              print(f"    -> Palabra '{token.text}' (lema: {token.lemma_}) ignorada.")
-             # Si encontramos una palabra desconocida DESPUÉS de acumular algo,
-             # asumimos que el número terminó antes y sumamos el segmento pendiente.
              if valor_segmento > 0:
                  print(f"    -> Palabra desconocida encontrada, sumando segmento pendiente: {valor_segmento}")
                  total_valor += valor_segmento
@@ -435,7 +424,6 @@ def parse_numero(texto):
                  segmento_con_digito = False
 
 
-    # Sumar cualquier valor remanente en el último segmento
     if valor_segmento > 0:
         total_valor += valor_segmento
         print(f"DEBUG parse_numero: Sumando segmento final remanente: {valor_segmento}. total_valor={total_valor}")
@@ -444,7 +432,6 @@ def parse_numero(texto):
         print(f"DEBUG parse_numero: Valor final extraído: {total_valor}")
         return total_valor, moneda
     else:
-        # Fallback final: intentar convertir todo el string procesado (útil si era solo un número como "150000")
         try:
             num_str_directo = texto_sin_moneda.replace('.', '').replace(',', '.').replace(' ', '')
             if num_str_directo:
@@ -455,7 +442,6 @@ def parse_numero(texto):
              print(f"DEBUG parse_numero: No se pudo extraer un valor numérico de '{texto_original}' por ningún método.")
              return None, None # Falla total
 
-# Tecnica Obligatoria: Embeddings (Realizada por spaCy y numpy)
 def encontrar_mejor_categoria(texto_categoria): # Ya no necesita el parámetro umbral aquí
     """
     Encuentra la categoría conocida más similar usando embeddings de spaCy.
@@ -471,7 +457,7 @@ def encontrar_mejor_categoria(texto_categoria): # Ya no necesita el parámetro u
 
     mejor_cat_encontrada = None
     mejor_sector_encontrado = None
-    max_sim = -1.0 # Inicializar con -1
+    max_sim = -1.0 
 
     for cat_original, data in categorias_empresa.items():
         similitud = np.dot(vector_usuario_norm, data['vector'])
@@ -482,11 +468,9 @@ def encontrar_mejor_categoria(texto_categoria): # Ya no necesita el parámetro u
             mejor_sector_encontrado = data['sector']
 
     print(f"----------------------------------------------------")
-    # Devolver siempre la mejor encontrada y su similitud
     print(f"DEBUG: Mejor coincidencia preliminar: '{mejor_cat_encontrada}' (Sector: {mejor_sector_encontrado}, Sim: {max_sim:.4f})")
     return mejor_cat_encontrada, mejor_sector_encontrado, max_sim
 
-# (get_next_question sin cambios)
 def get_next_question(contexto):
     for campo in CAMPOS_REQUERIDOS:
         if campo == 'ingresos_o_activos':
@@ -500,7 +484,7 @@ def get_formatted_question(campo_key):
     lista_preguntas = CAMPO_A_LISTA_PREGUNTAS.get(campo_key)
     if lista_preguntas and isinstance(lista_preguntas, list):
         pregunta = random.choice(lista_preguntas)
-    else: # Fallback si no hay lista o no es lista
+    else: 
         pregunta = f"¿Podrías darme información sobre {campo_key.replace('_', ' ')}?"
         print(f"ADVERTENCIA: No se encontró lista de preguntas para '{campo_key}', usando fallback.")
 
@@ -511,40 +495,33 @@ def get_formatted_question(campo_key):
               pregunta += f" (Ej: {ejemplo})" # Añadir ejemplo al final
     return pregunta
 
-# (format_greeting sin cambios)
 def format_greeting(template, name=None):
     if name: return template.replace("nombre", name)
     else: return re.sub(r'\s?nombre', '', template)
 
-# MODIFICADO: Usa Lema/POS para confirmación
 def check_confirmation(text):
     """Clasifica la respuesta de confirmación usando Lematización y POS Tagging."""
     print("\n--- Analizando Confirmación/Negación (Lema/POS) ---")
-    doc = nlp(text.lower()) # Tokeniza, Lematiza, Etiqueta POS
+    doc = nlp(text.lower()) 
     has_negation = False
     has_affirmation = False
 
     for token in doc:
         print(f"  Token: {token.text}, Lema: {token.lemma_}, POS: {token.pos_}")
-        # Buscar negaciones explícitas (ADV como 'no', o VERB negado)
         if token.lemma_ in LEMAS_NEGATIVOS or token.text in PALABRAS_NEGACION_DIRECTA:
-            # Comprobar si es una doble negación simple "no es incorrecto" (poco probable pero posible)
-            # Esta lógica puede ser más compleja
              is_double_negation = False
-             if token.i > 0 and doc[token.i-1].lemma_ == "ser": # si es "no es..."
-                 if token.i + 1 < len(doc) and doc[token.i+1].lemma_ in LEMAS_NEGATIVOS: # "...incorrecto"
+             if token.i > 0 and doc[token.i-1].lemma_ == "ser":
+                 if token.i + 1 < len(doc) and doc[token.i+1].lemma_ in LEMAS_NEGATIVOS: 
                       is_double_negation = True
 
              if not is_double_negation:
                  print("  -> Negación detectada.")
                  has_negation = True
-                 break # Una negación clara es suficiente
+                 break 
 
-        # Buscar afirmaciones explícitas
         if token.lemma_ in LEMAS_POSITIVOS:
             print("  -> Afirmación detectada.")
             has_affirmation = True
-            # No romper aquí, podría haber una negación después (ej. "Sí, pero no...") aunque es raro para confirmación simple
 
     print("-------------------------------------------------")
 
@@ -553,8 +530,6 @@ def check_confirmation(text):
     elif has_affirmation:
         return 'yes'
     else:
-        # Si no hay palabras clave claras, podríamos intentar NER aquí para ver si repite el dato?
-        # O simplemente asumir 'unclear'
         print("  -> Respuesta no clasificada como 'sí' o 'no' claros.")
         return 'unclear'
 
@@ -573,7 +548,6 @@ def convert_to_COP(valor, moneda):
         print(f"DEBUG: Convertido {valor} {moneda} a {valor_convertido:.2f} COP usando tasa {tasa:.2f}.")
         return valor_convertido
 
-# (format_data_for_lgbm y predict_lgbm sin cambios funcionales)
 def format_data_for_lgbm(contexto):
     print("\n--- Formateando datos para LightGBM ---"); print(f"Contexto recibido: {contexto}")
     try:
@@ -635,14 +609,14 @@ def extract_name_from_greeting(text):
     return None # No se encontró un patrón claro
 
 
-# --- 4. Lógica Principal del Chatbot (Modificada) ---
+# --- 4. Lógica Principal del Chatbot ---
 
 def chatbot_financiero():
     print("\n=============================================")
-    print("--- Iniciando Chatbot Financiero v3.0 ---")
+    print("--- Iniciando Chatbot Financiero  ---")
     print("=============================================")
     print("\nChatbot:")
-    for line in descripcion_general.split('\n'): print(line); time.sleep(0.05) # Más rápido
+    for line in descripcion_general.split('\n'): print(line); time.sleep(0.05) 
     print("\n")
     time.sleep(0.5)
 
@@ -684,7 +658,6 @@ def chatbot_financiero():
 
                 # Tecnica Obligatoria: Lematización/POS usada aquí
                 decision = check_confirmation(user_input)
-                # (El detalle del Lema/POS se imprime dentro de check_confirmation)
 
                 # Formatear valor para mostrar (después de check_confirmation)
                 display_value = f"{value_to_confirm:,}" if isinstance(value_to_confirm, (int, float)) else str(value_to_confirm)
@@ -772,7 +745,7 @@ def chatbot_financiero():
                     print(f"DEBUG: Texto de entidad principal: '{texto_entidad}' (Label: {entidades_encontradas[0]['label']})")
 
                     validation_successful = False
-                    # (Lógica de validación interna sin cambios)
+                    # (Lógica de validación interna )
                     if campo_esperado == "nombre_empresa": dato_validado = texto_entidad.strip(); validation_successful = bool(dato_validado)
                     elif campo_esperado == "numero_empleados": num_val, _ = parse_numero(texto_entidad); dato_validado = int(num_val) if num_val is not None and num_val >= 0 else None; validation_successful = (dato_validado is not None)
                     elif campo_esperado in ["valor_ingresos", "valor_activos", "valor_cartera", "valor_deudas"]:
@@ -791,7 +764,6 @@ def chatbot_financiero():
                             dato_validado = mejor_cat_match
                             sector_validado = mejor_sector_match
                             validation_successful = True
-                            # Proceder a la confirmación estándar (se hará más abajo)
 
                         else:
                             # --- Caso 2: Similitud BAJA ---
@@ -799,18 +771,14 @@ def chatbot_financiero():
                             print(f"DEBUG: Similitud BAJA ({similitud:.4f} < {SIMILARITY_THRESHOLD}). Preguntando si mantener texto original.")
                             # Preparar para confirmar el TEXTO ORIGINAL del usuario
                             confirmation_pending = {
-                                'field': campo_esperado, # Aún confirmamos 'area_categoria'
-                                'validated_value': texto_entidad, # Guardamos el texto original como valor
+                                'field': campo_esperado, 
+                                'validated_value': texto_entidad, 
                                 'original_text': texto_entidad,
-                                'currency': None, # No aplica
-                                'sector': "No Especificado", # Asignar sector por defecto o None
-                                'is_raw_text': True # Flag especial para saber que es texto crudo
+                                'currency': None, 
+                                'sector': "No Especificado", 
+                                'is_raw_text': True 
                             }
-                            # Hacer una pregunta específica para este caso
                             print(f"Chatbot: No encontré una categoría estándar que coincida bien con '{texto_entidad}'. ¿Quieres que usemos '{texto_entidad}' como la categoría de tu empresa? (Sí/No)")
-                            # Establecer validation_successful en False POR AHORA para evitar
-                            # que la lógica posterior pida la confirmación estándar.
-                            # La confirmación se manejará en la SIGUIENTE iteración del bucle.
                             validation_successful = False # Evita la confirmación estándar inmediata
                             print("-" * 40)
                             continue # Saltar al siguiente input del usuario
@@ -909,7 +877,6 @@ def chatbot_financiero():
             print(f"Chatbot: {recovery_message}")
             print("-" * 40)
 
-    # --- Fin del Bucle Principal ---
     if get_next_question(contexto) is None:
         print("\n--- Realizando Análisis Final ---")
         lgbm_input_data = format_data_for_lgbm(contexto)
@@ -929,6 +896,5 @@ def chatbot_financiero():
         print("\nChatbot: No se completó la recolección de datos.")
         print(f"Chatbot: {random.choice(respuestas_despedida)}")
 
-# --- Ejecutar el Chatbot ---
 if __name__ == "__main__":
     chatbot_financiero()

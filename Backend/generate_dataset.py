@@ -3,7 +3,7 @@ import numpy as np
 from faker import Faker
 import os
 
-# --- 1. Función para leer el TXT con categorías y sectores (sin cambios) ---
+# --- 1. Función para leer el TXT con categorías y sectores ---
 def leer_categorias(ruta_archivo_txt):
     """
     Lee un archivo TXT con 'Area, Sector' por línea y lo carga en un DataFrame.
@@ -40,7 +40,7 @@ def leer_categorias(ruta_archivo_txt):
         return None
 
 
-# --- 2. Función para generar el dataset aleatorio (MODIFICADA) ---
+# --- 2. Función para generar el dataset aleatorio ---
 def generar_dataset_empresas(df_categorias, num_empresas=100):
     """
     Genera un dataset aleatorio de empresas con datos coherentes,
@@ -66,20 +66,19 @@ def generar_dataset_empresas(df_categorias, num_empresas=100):
         area = categoria_seleccionada['Area']
         sector = categoria_seleccionada['Sector']
 
-        # --- AJUSTES POR SECTOR ---
         # Definir factores base según el sector para influir en los rangos
         if sector in ['Primario', 'Secundario']:
             # Sectores intensivos en capital/activos
             empleados_min, empleados_max = 10, 2500
             activo_por_empleado_min, activo_por_empleado_max = 20_000_000, 150_000_000
             max_debt_ratio_factor = 1.25 # Permite ratios de deuda ligeramente mayores (hasta 1.25*1.15 ~ 1.4x activos)
-            cartera_max_pct = 0.6 # Porcentaje máximo de activos como cartera
+            cartera_max_pct = 0.6 
         elif sector == 'Cuaternario':
             # Sectores de conocimiento/tecnología (puede variar mucho)
             empleados_min, empleados_max = 5, 1000
             activo_por_empleado_min, activo_por_empleado_max = 10_000_000, 80_000_000 # Menos activos físicos?
             max_debt_ratio_factor = 1.0 # Ratios de deuda estándar o bajos (hasta 1.15x activos)
-            cartera_max_pct = 0.75 # Puede tener más cartera pendiente?
+            cartera_max_pct = 0.75 
         else: # Terciario y otros
             # Rango intermedio/generalista
             empleados_min, empleados_max = 5, 1500
@@ -119,7 +118,6 @@ def generar_dataset_empresas(df_categorias, num_empresas=100):
             'Cartera (COP)': cartera,
             'Deudas (COP)': deudas
         })
-        # --- FIN AJUSTES ---
         if (i + 1) % 100 == 0: # Imprime progreso cada 100 empresas
              print(f"Generadas {i+1}/{num_empresas} empresas...")
 
@@ -127,7 +125,7 @@ def generar_dataset_empresas(df_categorias, num_empresas=100):
     print(f"Dataset aleatorio de {num_empresas} empresas generado (con influencia del sector).")
     return pd.DataFrame(data_empresas)
 
-# --- 3. Función para calcular métricas y categorizar (MODIFICADA) ---
+# --- 3. Función para calcular métricas y categorizar ---
 def categorizar_empresas(df_empresas):
     """
     Calcula métricas financieras y asigna una categoría de nivel económico,
@@ -157,7 +155,7 @@ def categorizar_empresas(df_empresas):
     df['Razon Endeudamiento'].replace([np.inf, -np.inf], np.nan, inplace=True)
 
     # --- AJUSTES POR SECTOR EN UMBRALES ---
-    # Definir umbrales base (los originales)
+    # Definir umbrales base 
     umbral_base = {
         'Critica': 0.8,
         'Vulnerable': 0.6,
@@ -180,12 +178,10 @@ def categorizar_empresas(df_empresas):
         default=1.0 # Terciario y otros: Base
     )
 
-    # Aplicar ajuste a los umbrales (crear columnas temporales o usar en condiciones)
     umbral_critica_ajustado = umbral_base['Critica'] * factor_ajuste
     umbral_vulnerable_ajustado = umbral_base['Vulnerable'] * factor_ajuste
     umbral_estable_ajustado = umbral_base['Estable'] * factor_ajuste
     umbral_solida_ajustado = umbral_base['Solida'] * factor_ajuste
-    # --- FIN AJUSTES ---
 
     # Definir condiciones y categorías usando umbrales ajustados
     conditions = [
@@ -208,7 +204,6 @@ def categorizar_empresas(df_empresas):
 
     df['Nivel Economico'] = np.select(conditions, categories, default='Indeterminado')
 
-    # Añadir columna con el factor de ajuste para referencia (opcional)
     df['Factor Ajuste Umbral'] = factor_ajuste
     df['Umbral Critica Ajustado'] = umbral_critica_ajustado # Ejemplo de umbral ajustado
 
@@ -218,8 +213,6 @@ def categorizar_empresas(df_empresas):
     print("Métricas calculadas y empresas categorizadas (con influencia del sector).")
     return df
 
-
-# --- 4. Función para guardar el DataFrame en CSV (sin cambios) ---
 def guardar_csv(df_final, ruta_archivo_csv):
     """
     Guarda el DataFrame en un archivo CSV.
@@ -243,8 +236,6 @@ def guardar_csv(df_final, ruta_archivo_csv):
     except Exception as e:
         print(f"Error al guardar el archivo CSV: {e}")
 
-
-# --- Bloque Principal de Ejecución (sin cambios, pero los resultados variarán) ---
 if __name__ == "__main__":
     # --- Configuración ---
     ruta_txt_categorias = 'Data/Categorias-Empresa.txt'

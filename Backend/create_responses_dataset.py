@@ -10,7 +10,7 @@ NUM_EJEMPLOS_POR_CATEGORIA = 1500
 LOCALE = 'es'
 OUTPUT_CSV_FILE = 'Data/dataset_completo.csv'
 
-# Nombres de los archivos TXT de plantillas (sin cambios)
+# Nombres de los archivos TXT de plantillas
 FILES = {
     'insultos_sustantivos': 'Data/insultos.txt',
     'insultos_adjetivos': 'Data/adjetivos_negativos.txt',
@@ -20,7 +20,7 @@ FILES = {
     'categorias_sectores': 'Data/Categorias-Empresa.txt'
 }
 
-# Lista de categorías ACTUALIZADA (Respuesta dividida)
+# Lista de categorías 
 CATEGORIAS = [
     "Insulto",
     "Pregunta Económica",
@@ -37,7 +37,6 @@ CATEGORIAS = [
     "Pregunta sobre Proceso"
 ]
 
-# --- Inicializar Faker ---
 fake = Faker(LOCALE)
 
 # --- Funciones Auxiliares ---
@@ -85,7 +84,6 @@ def numero_a_palabras(numero):
         return palabras
     except Exception as e: return f"{numero:,}".replace(",", ".")
 
-# --- Cargar Datos y Plantillas ---
 print("Cargando datos y plantillas...")
 df_categorias_global = leer_categorias_sectores_txt(FILES['categorias_sectores'])
 
@@ -155,115 +153,108 @@ listas_fillers = {
 }
 
 intensificadores = [
-    # Originales:
     "tan", "muy", "increíblemente", "absurdamente", "ridículamente",
     "extremadamente", "demasiado", "realmente", "bastante",
-    # Nuevos:
-    "sumamente",          # Very, highly
-    "excesivamente",      # Excessively
-    "tremendamente",      # Tremendously (can be positive or negative)
-    "enormemente",        # Enormously
-    "profundamente",      # Profoundly, deeply
-    "completamente",      # Completely
-    "totalmente",         # Totally
-    "absolutamente",      # Absolutely
-    "verdaderamente",     # Truly, genuinely
-    "exageradamente",     # Exaggeratedly
-    "notablemente",       # Notably, remarkably
-    "sorprendentemente",  # Surprisingly
-    "especialmente",      # Especially
-    "particularmente",    # Particularly
-    "harto", # Very, quite (colloquial, common in some regions)
-    "súper", # Super (very common)
-    "ultra", # Ultra
-    "rematadamente",      # Utterly, hopelessly (often negative context)
-    "brutalmente",        # Brutally (can imply excessive intensity)
-    "terriblemente",      # Terribly (can intensify positive or negative)
-    "altamente",          # Highly
-    "perfectamente",      # Perfectly (e.g., "perfectamente inútil")
+    "sumamente",          
+    "excesivamente",      
+    "tremendamente",      
+    "enormemente",        
+    "profundamente",      
+    "completamente",      
+    "totalmente",         
+    "absolutamente",      
+    "verdaderamente",     
+    "exageradamente",     
+    "notablemente",       
+    "sorprendentemente",  
+    "especialmente",      
+    "particularmente",    
+    "harto", 
+    "súper", 
+    "ultra", 
+    "rematadamente",      
+    "brutalmente",        
+    "terriblemente",      
+    "altamente",          
+    "perfectamente",      
 ]
 verbos_negativos_inf = [
-    # Originales:
     "molestar", "fastidiar", "interrumpir", "decir tonterías",
     "ser inútil", "complicar las cosas",
-    # Nuevos:
-    "incordiar",          # To annoy, bother (similar to fastidiar)
-    "entorpecer",         # To hinder, obstruct
-    "obstaculizar",       # To obstruct, impede
-    "perjudicar",         # To harm, damage, prejudice
-    "dañar",              # To damage, harm
-    "estropear",          # To spoil, ruin, mess up
-    "arruinar",           # To ruin
-    "criticar",           # To criticize (can be neutral, often negative)
-    "quejarse",           # To complain
-    "mentir",             # To lie
-    "engañar",            # To deceive, cheat
-    "desperdiciar",       # To waste
-    "malgastar",          # To squander, waste
-    "irritar",            # To irritate
-    "exasperar",          # To exasperate
-    "agobiar",            # To overwhelm, burden
-    "ser un estorbo",     # To be a nuisance/hindrance
-    "ser incompetente",   # To be incompetent
-    "ser contraproducente", # To be counterproductive
-    "dificultar",         # To make difficult
-    "impedir",            # To prevent, impede
-    "renegar",            # To grumble, complain bitterly
-    "sabotear",           # To sabotage
-    "menospreciar",       # To underestimate, scorn, belittle
+    "incordiar",         
+    "entorpecer",         
+    "obstaculizar",       
+    "perjudicar",         
+    "dañar",              
+    "estropear",          
+    "arruinar",           
+    "criticar",           
+    "quejarse",           
+    "mentir",             
+    "engañar",            
+    "desperdiciar",       
+    "malgastar",          
+    "irritar",            
+    "exasperar",          
+    "agobiar",            
+    "ser un estorbo",     
+    "ser incompetente",   
+    "ser contraproducente", 
+    "dificultar",         
+    "impedir",            
+    "renegar",            
+    "sabotear",           
+    "menospreciar",       
     "dar la lata" 
-    "ser un desastre",    # To be a disaster (referring to a person's actions/state)
+    "ser un desastre",    
     "meter la pata" 
-    "ignorar",            # To ignore (can be negative depending on context)
-    "retrasar",           # To delay
+    "ignorar",            
+    "retrasar",           
 ]
 contextos_negativos = [
-    # Originales:
     "para nada útil", "ni para empezar", "en lo absoluto",
     "para resolver esto", "con esa actitud",
-    # Nuevos:
-    "de ninguna manera",    # In no way, by no means
-    "bajo ninguna circunstancia", # Under no circumstances
-    "sin ningún sentido",     # Without any sense, meaningless
-    "en vano",              # In vain
-    "por gusto",# For nothing, pointlessly
-    "de nada sirve",        # It's no use
-    "no lleva a ninguna parte",# It leads nowhere
-    "así no se puede",      # It's not possible like this
-    "de esa forma",         # In that way (implying it's wrong)
-    "con esa mentalidad",   # With that mentality
-    "si sigues así",        # If you continue like this
-    "para empeorar las cosas",# To make matters worse
-    "solo para complicar",   # Only to complicate things
-    "sin ayudar en nada",   # Without helping at all
-    "creando más problemas", # Creating more problems
-    "en este lío",          # In this mess
-    "con este desorden",    # With this disorder/mess
-    "ni de lejos",          # Not even close, by a long shot
-    "ni por asomo",         # Not by a long shot, no way
-    "en ningún caso",       # In no case
-    "sin pies ni cabeza",   # Without making any sense (lit. without feet or head)
-    "para nada",            # Not at all
+    "de ninguna manera",    
+    "bajo ninguna circunstancia", 
+    "sin ningún sentido",     
+    "en vano",              
+    "por gusto",
+    "de nada sirve",        
+    "no lleva a ninguna parte",
+    "así no se puede",      
+    "de esa forma",         
+    "con esa mentalidad",   
+    "si sigues así",        
+    "para empeorar las cosas",
+    "solo para complicar",   
+    "sin ayudar en nada",   
+    "creando más problemas", 
+    "en este lío",          
+    "con este desorden",    
+    "ni de lejos",          
+    "ni por asomo",         
+    "en ningún caso",       
+    "sin pies ni cabeza",   
+    "para nada",            
 ]
-# --- Listas y Plantillas (Usaremos las mismas ampliadas de v2) ---
-campos_empresa_preg = [ # Expandida
+campos_empresa_preg = [ 
     "nombre de empresa", "categoría de la empresa", "sector", "valor anual en ganancias",
     "número de empleados", "valor en activos", "valor en cartera", "valor de deudas",
     "patrimonio neto", "ingresos operacionales",
 ]
 otro_campo_empresa_preg = campos_empresa_preg[:]
 monedas_preg = ["pesos colombianos", "dólares americanos", "euros", "COP", "USD", "EUR", "la moneda local"]
-formatos_preg = [ # Expandida
+formatos_preg = [ 
     "número entero", "texto", "con dos decimales", "formato con puntos", "sin comas",
     "porcentaje", "moneda específica", "formato numérico estándar", "cadena de texto",
     "valor exacto", "valor aproximado", "sin símbolos"
 ]
-# Nuevas listas de relleno
+
 verbos_accion = ["Debo", "Puedo", "Necesito", "Tengo que", "Es necesario", "Se requiere", "Es posible", "Se puede"]
 adjetivos_claridad = ["clara", "detallada", "precisa", "simple", "concreta", "breve", "exhaustiva", "visual"]
 contextos_duda = ["rápida", "puntual", "importante", "general", "específica", "fundamental", "básica", "técnica"]
 valores_ejemplo = ["10.000.000", "N/A", "Sector Servicios", "Cero", "Positivo", "-5.000.000", "1500 Millones COP", "CONFIDENCIAL", "Variable"]
-documentos_fuente = [ # Nueva
+documentos_fuente = [ 
     "el balance general", "el estado de resultados", "el RUT", "el informe anual",
     "el registro mercantil", "la declaración de renta", "el flujo de caja",
     "las notas a los estados financieros", "el certificado de existencia", "la escritura de constitución"
@@ -773,7 +764,6 @@ plantillas_proceso_internas_dinamicas = [
 ]
 
 
-# Frases cortas para añadir después de un saludo básico
 frases_seguimiento_saludo = [
     "¿Cómo estás?",
     "¿En qué puedo ayudarte hoy?",
@@ -786,12 +776,10 @@ frases_seguimiento_saludo = [
     "¿Qué se te ofrece?",
     "Dime cómo te puedo colaborar.",
 ]
-# --- Función Principal de Generación de Frases REFACTORIZADA ---
 def generar_frase(categoria, df_categorias):
     """Genera una frase aleatoria para la categoría dada."""
     global plantillas_cargadas
 
-    # --- Categorías existentes (Insulto, Preguntas, Saludo) ---
     if categoria == "Insulto":
         # Cargar sustantivos y adjetivos desde los archivos (asegurarse que plantillas_cargadas esté accesible)
         # Usar fallbacks si los archivos no cargaron
@@ -892,7 +880,7 @@ def generar_frase(categoria, df_categorias):
     elif categoria == "Saludo":
         # Obtener saludos base del TXT (con fallback)
         saludos_base = plantillas_cargadas.get('saludos', ["Hola", "Buenos días", "Qué tal"])
-        if not saludos_base: # Doble chequeo por si el archivo estaba vacío
+        if not saludos_base: 
              saludos_base = ["Hola", "Buenos días", "Qué tal"]
 
         # Decidir aleatoriamente qué tipo de saludo generar
@@ -942,7 +930,6 @@ def generar_frase(categoria, df_categorias):
         else: # Fallback por si acaso
              return random.choice(saludos_base)
 
-     # --- MODIFICACIÓN PARA PREGUNTA PERSONAL ---
     elif categoria == "Pregunta Personal":
         # Decidir si usar plantilla de TXT (si existe) o una interna dinámica
         usar_txt = random.random() < 0.5 and plantillas_cargadas.get('preguntas_personales') # 50% chance si TXT existe
@@ -967,14 +954,11 @@ def generar_frase(categoria, df_categorias):
             return frase_final
 
     elif categoria == "Pregunta sobre Proceso":
-        # Decidir si usar plantilla de TXT (si existe) o una interna dinámica
         usar_txt = random.random() < 0.5 and plantillas_cargadas.get('preguntas_sobre_proceso') # 50% chance si TXT existe
 
-        # Obtener la plantilla base
         if usar_txt:
             plantilla = random.choice(plantillas_cargadas['preguntas_sobre_proceso'])
         else:
-            # Usar una plantilla interna dinámica (o fallback si no hay)
             if plantillas_proceso_internas_dinamicas:
                  plantilla = random.choice(plantillas_proceso_internas_dinamicas)
             elif plantillas_cargadas.get('preguntas_sobre_proceso'): # Fallback a TXT si internas fallan
@@ -983,7 +967,6 @@ def generar_frase(categoria, df_categorias):
                  return "¿Puedes explicar mejor el proceso?"
 
         # Definir todos los posibles rellenos para esta iteración
-        # (Asegúrate que campos_empresa_preg esté definida y accesible globalmente o pasada como argumento)
         try:
              campo_especifico_relleno = random.choice(campos_empresa_preg)
         except NameError: # Fallback si campos_empresa_preg no está definida
@@ -998,15 +981,10 @@ def generar_frase(categoria, df_categorias):
             '{razon_duda}': random.choice(razones_duda),
             '{feedback_tipo}': random.choice(feedback_tipos),
             '{verbos_proceso}': random.choice(verbos_proceso),
-            # Añadir más placeholders aquí si los defines
         }
 
-        # Intentar rellenar todos los placeholders conocidos en la plantilla elegida
         frase_final = plantilla
-        # Usar replace para manejar ambos tipos de placeholders ([ ] y { }) si es necesario,
-        # aunque sería mejor estandarizar a uno (ej. { })
         for placeholder, filler in valores_relleno.items():
-             # Adaptar para manejar ambos tipos de brackets si es necesario
              if placeholder in frase_final:
                   frase_final = frase_final.replace(placeholder, filler)
              elif placeholder.replace('{','[').replace('}',']') in frase_final: # Comprobar formato [dato especifico]
@@ -1014,7 +992,6 @@ def generar_frase(categoria, df_categorias):
 
         return frase_final
 
-    # --- NUEVAS Categorías de Respuesta ---
     elif categoria == "Respuesta Nombre":
         plantilla = random.choice(plantillas_respuesta_nombre)
         return plantilla.format(nombre_empresa=fake.company())
@@ -1033,12 +1010,11 @@ def generar_frase(categoria, df_categorias):
 
     elif categoria == "Respuesta Empleados":
         if df_categorias is None:
-             sector_seleccionado = None # No se puede determinar sector
+             sector_seleccionado = None 
              print("ADVERTENCIA: Usando rango de empleados por defecto por falta de 'Categoria-Empresa.txt'.")
         else:
              sector_seleccionado = df_categorias.sample(1).iloc[0]['Sector']
 
-        # Usar rangos dependientes del sector
         if sector_seleccionado in ['Primario', 'Secundario']: empleados_min, empleados_max = 10, 2500
         elif sector_seleccionado == 'Cuaternario': empleados_min, empleados_max = 5, 1000
         else: empleados_min, empleados_max = 5, 1500 # Terciario y otros/fallback
@@ -1094,11 +1070,11 @@ def generar_frase(categoria, df_categorias):
         return f"Categoría '{categoria}' no reconocida o sin lógica de generación."
 
 
-# --- Generación del Dataset (Bucle principal sin cambios estructurales) ---
+# --- Generación del Dataset ---
 print(f"\nGenerando {NUM_EJEMPLOS_POR_CATEGORIA} ejemplos para cada una de las {len(CATEGORIAS)} categorías...")
 dataset = []
 frases_generadas_set = set()
-# Asegurarse que df_categorias_global esté disponible para generar_frase
+
 if df_categorias_global is None and any(c in ["Respuesta Categoria Empresa", "Respuesta Sector", "Respuesta Empleados"] for c in CATEGORIAS):
      print("ADVERTENCIA: Algunas categorías de respuesta tendrán funcionalidad limitada por falta de 'Categoria-Empresa.txt'.")
 
@@ -1114,15 +1090,13 @@ for categoria in CATEGORIAS:
         try:
             frase = generar_frase(categoria, df_categorias_global)
 
-            # --- MODIFICACIÓN CLAVE: Comprobar unicidad ANTES de añadir ---
             if frase and isinstance(frase, str) and \
                frase not in frases_generadas_set and \
                'no reconocida' not in frase.lower() and \
                'no se pudo determinar' not in frase.lower() and \
                'falta archivo' not in frase.lower():
 
-                # Si es válida Y ÚNICA:
-                frases_generadas_set.add(frase) # <--- Añadir al set de frases vistas
+                frases_generadas_set.add(frase) 
                 dataset.append({'Frase': frase, 'Categoria': categoria}) # Añadir al dataset final
                 ejemplos_generados_categoria += 1 # Incrementar contador para esta categoría
 
@@ -1135,7 +1109,7 @@ for categoria in CATEGORIAS:
 
 print("\nGeneración completada.")
 
-# --- Crear, Mezclar y Guardar DataFrame (sin cambios) ---
+# --- Crear, Mezclar y Guardar DataFrame ---
 if not dataset:
      print("ERROR: No se generaron datos válidos. Revisa los archivos TXT y el código.")
 else:

@@ -30,8 +30,6 @@ TARGET_COLUMN = 'Nivel Economico'
 BUNDLE_PATH = 'Data/model_bundle_nivel_economico.joblib'
 
 
-# --- (Funciones auxiliares como cargar_datos, preparar_datos, buscar_mejores_parametros, predecir, graficar, etc. sin cambios) ---
-# (Copio las funciones clave aquí para que el bloque de código sea completo)
 def cargar_datos_entrenamiento(ruta_csv):
     try:
         df = pd.read_csv(ruta_csv)
@@ -86,7 +84,7 @@ def buscar_mejores_parametros(X_train, y_train, categorical_features):
     }
     lgbm = lgb.LGBMClassifier(objective='multiclass', metric='multi_logloss', random_state=42)
     cv_strategy = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
-    n_iter_search = 10 # Ajustable
+    n_iter_search = 10 
     random_search = RandomizedSearchCV(estimator=lgbm, param_distributions=param_dist, n_iter=n_iter_search,
                                        scoring='accuracy', cv=cv_strategy, random_state=42, n_jobs=-1, verbose=1)
     print(f"Realizando búsqueda aleatoria con {n_iter_search} iteraciones y CV de {cv_strategy.get_n_splits()} folds...")
@@ -128,7 +126,6 @@ def graficar_matriz_confusion(y_true, y_pred, labels, title='Matriz de Confusió
     plt.xticks(rotation=45, ha='right'); plt.yticks(rotation=0)
     plt.tight_layout(); plt.show()
 
-# --- NUEVA Función para Cargar y Usar Modelo Guardado (Ejemplo) ---
 def cargar_y_usar_modelo_guardado(df_nuevos_para_predecir, features, bundle_path=BUNDLE_PATH):
     """Carga el modelo y el encoder guardados y predice en nuevos datos."""
     print(f"\n--- Cargando modelo y encoder desde {bundle_path} ---")
@@ -149,8 +146,6 @@ def cargar_y_usar_modelo_guardado(df_nuevos_para_predecir, features, bundle_path
         # Asegurarse de que los nuevos datos usen las mismas features
         if features != loaded_features:
              print(f"Advertencia: Las features proporcionadas ({features}) no coinciden con las del modelo guardado ({loaded_features}). Usando las del modelo guardado.")
-             # O lanzar un error, dependiendo de cómo quieras manejarlo
-             # return None
 
         # Usar la función de predicción existente
         predicciones = predecir_nuevos_datos(loaded_model, loaded_le, df_nuevos_para_predecir, loaded_features)
@@ -163,7 +158,6 @@ def cargar_y_usar_modelo_guardado(df_nuevos_para_predecir, features, bundle_path
         print(f"Error al cargar o usar el modelo guardado: {e}")
         return None
 
-# --- Main Execution (Modificado para guardar el modelo) ---
 if __name__ == "__main__":
 
     # 1. Cargar datos
@@ -201,11 +195,6 @@ if __name__ == "__main__":
 
     except Exception as e:
         print(f"Error al guardar el modelo o el encoder: {e}")
-        # Continuar igualmente para la prueba si se desea, pero advertir
-    # ----------------------------------------
-
-    # --- Continuar con la prueba en datos nuevos ---
-    # aplicar reglas, comparar y graficar)
 
     # 4. Generar NUEVO dataset para prueba
     print(f"\n--- Generando {NUM_NEW_EMPRESAS} nuevas empresas para prueba ---")
@@ -217,7 +206,7 @@ if __name__ == "__main__":
     df_nuevos_para_reglas = df_nuevos_generados.copy()
     df_nuevos_para_modelo = df_nuevos_generados.copy()
 
-    # 5. Predecir con el modelo recién entrenado (o el cargado si se quisiera)
+    # 5. Predecir con el modelo recién entrenado 
     predicciones_modelo = predecir_nuevos_datos(
         modelo_optimizado, le, df_nuevos_para_modelo, BASE_FEATURES
     )
@@ -255,17 +244,15 @@ if __name__ == "__main__":
                               title='Matriz de Confusión - Modelo Optimizado vs. Reglas (Nuevos Datos)')
 
 
-    # --- Ejemplo de cómo cargar y usar el modelo guardado ---
     print("\n\n--- DEMO: Cargando y usando el modelo guardado ---")
-    # Supongamos que tenemos otro DataFrame nuevo (podríamos generar otro o reusar df_nuevos_generados)
-    df_para_demo = df_nuevos_generados.sample(5) # Tomar 5 muestras aleatorias
+    df_para_demo = df_nuevos_generados.sample(5) 
     print("Nuevos datos para la demo (primeras filas):")
     print(df_para_demo[BASE_FEATURES].head())
 
     predicciones_cargadas = cargar_y_usar_modelo_guardado(
         df_para_demo,
-        BASE_FEATURES, # Pasamos las features esperadas
-        bundle_path=BUNDLE_PATH # Usamos la ruta donde guardamos el bundle
+        BASE_FEATURES, 
+        bundle_path=BUNDLE_PATH 
     )
 
     if predicciones_cargadas is not None:

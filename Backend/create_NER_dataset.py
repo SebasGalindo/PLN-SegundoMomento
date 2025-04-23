@@ -11,13 +11,11 @@ NUM_EJEMPLOS_POR_CATEGORIA_RESPUESTA = 2000 # Cuántos ejemplos por cada tipo de
 LOCALE = 'es'
 OUTPUT_JSONL_FILE = 'Data/dataset_ner.jsonl' # Salida en formato JSON Lines
 
-# Nombres de los archivos TXT (Solo necesitamos el de categorías/sectores aquí)
+# Nombres de los archivos TXT 
 FILES = {
     'categorias_sectores': 'Data/Categorias-Empresa.txt'
-    # No necesitamos los otros txt para generar solo las respuestas con entidades
 }
 
-# Categorías de RESPUESTA que contienen las entidades a extraer
 CATEGORIAS_RESPUESTA_NER = [
     "Respuesta Nombre",
     "Respuesta Categoria Empresa",
@@ -28,7 +26,6 @@ CATEGORIAS_RESPUESTA_NER = [
     "Respuesta Cartera",
     "Respuesta Deudas",
 ]
-# Etiquetas NER que usaremos (deben coincidir con las categorías)
 ENTITY_LABELS = {
     "Respuesta Nombre": "NOMBRE_EMPRESA",
     "Respuesta Categoria Empresa": "CATEGORIA_EMPRESA",
@@ -41,10 +38,9 @@ ENTITY_LABELS = {
 }
 
 
-# --- Inicializar Faker ---
 fake = Faker(LOCALE)
 
-# --- Funciones Auxiliares (adaptadas de versiones anteriores) ---
+# --- Funciones Auxiliares ---
 def leer_categorias_sectores_txt(ruta_archivo_txt):
     if not os.path.exists(ruta_archivo_txt):
         print(f"ERROR CRÍTICO: '{ruta_archivo_txt}' no encontrado.")
@@ -78,12 +74,9 @@ def numero_a_palabras(numero):
 print("Cargando datos de categorías/sectores...")
 df_categorias_global = leer_categorias_sectores_txt(FILES['categorias_sectores'])
 
-# --- Plantillas de Respuesta (Usaremos las mismas ampliadas de antes) ---
-# (Incluye aquí TODAS las listas plantillas_respuesta_* de la versión anterior)
-# ... (plantillas_respuesta_nombre, plantillas_respuesta_categoria, ..., plantillas_respues_deuda_ninguna) ...
 moneda_simbolos = ["COP", "USD", "EUR"]
 unidades_dinero_texto = ["pesos", "millones de pesos", "miles de millones de pesos", "dólares", "miles de dólares", "millones de dólares", "euros"]
-plantillas_respuesta_nombre = [ # >=10
+plantillas_respuesta_nombre = [
     "Mi empresa se llama {nombre_empresa}.", "Somos {nombre_empresa}.", "El nombre es {nombre_empresa}.",
     "Nos registramos como {nombre_empresa}.", "La razón social es {nombre_empresa}.",
     "El nombre comercial que usamos es {nombre_empresa}.", "Formalmente, somos {nombre_empresa}.",
@@ -134,7 +127,7 @@ plantillas_respuesta_nombre = [ # >=10
     "Formalmente nos llaman {nombre_empresa}.",
     "{nombre_empresa} es el nombre que usamos.", "{nombre_empresa}",
  ]
-plantillas_respuesta_categoria = [ # >=10
+plantillas_respuesta_categoria = [ 
      "Nuestra categoría es {categoria}.", "Estamos clasificados en {categoria}.",
      "La categoría principal de la empresa es {categoria}.", "Pertenecemos a la categoría {categoria}.",
      "Operamos dentro de la categoría {categoria}.", "En cuanto a categoría, somos {categoria}.",
@@ -177,7 +170,7 @@ plantillas_respuesta_categoria = [ # >=10
      "El segmento al que apuntamos es {categoria}.",
      "Posiblemente, somos {categoria}.",
  ]
-plantillas_respuesta_sector = [ # >=10
+plantillas_respuesta_sector = [ 
      "Pertenecemos al sector {sector}.", "Estamos en el sector {sector}.",
      "Nuestra actividad principal está en el sector {sector}.", "Operamos en el sector {sector}.",
      "El sector económico es {sector}.", "Nos ubicamos en el sector {sector}.",
@@ -235,7 +228,7 @@ plantillas_respuesta_sector = [ # >=10
      "No tenemos una clasificación única clara, pero se acerca más a {sector}.",
      "Podría ser {sector}, aunque hacemos otras cosas también.",
  ]
-plantillas_respuesta_empleados = [ # >=10
+plantillas_respuesta_empleados = [ 
      "Tenemos {valor} empleados.", "Contamos con {valor} trabajadores.", "Somos {valor} personas en el equipo.",
      "La nómina actual es de {valor} empleados.", "Actualmente empleamos a {valor} personas.",
      "El número de colaboradores es {valor}.", "Nuestra plantilla es de {valor} empleados.",
@@ -287,7 +280,7 @@ plantillas_respuesta_empleados = [ # >=10
      "Ay, bueno... para que no molestes más: {valor}.",
      "{valor}. Y no preguntes más detalles.",
  ]
-plantillas_respuesta_ganancias = [ # >=10
+plantillas_respuesta_ganancias = [
      "Generamos {valor} en ganancias anuales.", "Nuestras ganancias anuales son de {valor}.",
      "Reportamos {valor} en ganancias el último año.", "El beneficio anual fue de {valor}.",
      "Las ganancias ascienden a {valor}.", "Obtuvimos ganancias por {valor} anualmente.",
@@ -295,123 +288,121 @@ plantillas_respuesta_ganancias = [ # >=10
      "Cerramos el año con {valor} en ganancias.", "Nuestra utilidad anual es {valor}.",
      "Pues, al año ganamos unos {valor}.",
      "Nos quedaron como {valor} de ganancias el año pasado.",
-     "Hicimos más o menos {valor} en beneficios anuales.", # Usa "hicimos" y "más o menos"
-     "Lo que entró limpio fueron unos {valor} anuales.", # "Entró limpio" es coloquial para beneficio neto
-     "Sacamos {valor} libres al año.", # "Sacar libres" es otra forma informal
-     "Al final del día, nos quedan {valor} al año.", # Frase hecha "al final del día"
-     "Andamos ganando por los {valor} anuales.", # Usa "andamos ganando" y "por los"
+     "Hicimos más o menos {valor} en beneficios anuales.",
+     "Lo que entró limpio fueron unos {valor} anuales.", 
+     "Sacamos {valor} libres al año.", 
+     "Al final del día, nos quedan {valor} al año.",
+     "Andamos ganando por los {valor} anuales.", 
      "En un año normalito, hacemos {valor}.",
-     "Las ganancias anuales rondan los {valor}.", # Usa "rondan"
-     "Generamos aproximadamente {valor} en ganancias cada año.", # Usa "aproximadamente"
-     "Calculamos que el beneficio anual es de unos {valor}.", # Usa "calculamos" y "unos"
-     "Cerca de {valor} anuales, aunque varía.", # Usa "cerca de" y menciona variabilidad
-     "No tengo la cifra exacta, pero estimo que las ganancias son {valor}.", # Admite no saber exacto y usa "estimo"
-     "Depende del cierre final, pero esperamos obtener {valor}.", # Condiciona al cierre contable
-     "El resultado neto está en el orden de {valor} anuales.", # Usa "en el orden de"
-     "Más o menos {valor} de utilidad anual, para darte una idea.", # "Más o menos" y añade contexto
-     "Todavía es una estimación, pero apunta a {valor} en ganancias.", # Indica que es preliminar
+     "Las ganancias anuales rondan los {valor}.", 
+     "Generamos aproximadamente {valor} en ganancias cada año.", 
+     "Calculamos que el beneficio anual es de unos {valor}.", 
+     "Cerca de {valor} anuales, aunque varía.", 
+     "No tengo la cifra exacta, pero estimo que las ganancias son {valor}.", 
+     "Depende del cierre final, pero esperamos obtener {valor}.", 
+     "El resultado neto está en el orden de {valor} anuales.",
+     "Más o menos {valor} de utilidad anual, para darte una idea.",
+     "Todavía es una estimación, pero apunta a {valor} en ganancias.",
      "Alrededor de {valor}, pero no me cites en eso hasta el informe oficial.",
-     "¡Estupendo! Cerramos el año con {valor} en ganancias.", # Usa exclamación y adjetivo positivo
-     "Estamos muy satisfechos, nuestras ganancias anuales fueron de {valor}.", # Expresa satisfacción
-     "¡Logramos un beneficio anual de {valor}, superando las metas!", # Indica logro y superación
-     "Afortunadamente, generamos {valor} en ganancias, ¡un gran resultado!", # Usa "afortunadamente" y califica el resultado
-     "Con orgullo reportamos {valor} de utilidad anual.", # Expresa orgullo
-     "¡Un año excelente! Las ganancias ascendieron a {valor}.", # Califica el año
-     "Nos fue realmente bien, obtuvimos ganancias por {valor} anualmente.", # Enfatiza el buen resultado
+     "¡Estupendo! Cerramos el año con {valor} en ganancias.",
+     "Estamos muy satisfechos, nuestras ganancias anuales fueron de {valor}.", 
+     "¡Logramos un beneficio anual de {valor}, superando las metas!", 
+     "Afortunadamente, generamos {valor} en ganancias, ¡un gran resultado!", 
+     "Con orgullo reportamos {valor} de utilidad anual.", 
+     "¡Un año excelente! Las ganancias ascendieron a {valor}.", 
+     "Nos fue realmente bien, obtuvimos ganancias por {valor} anualmente.",
      "El resultado neto fue un sólido {valor}, ¡estamos muy contentos!",
-     "Ugh, ¿realmente importa? Bueno, las ganancias fueron {valor}.", # Muestra fastidio y minimiza la importancia
-     "Preferiría no compartir cifras, pero ya que insistes... {valor}.", # Expresa reticencia explícita
-     "No fue un buen año, la verdad. Apenas {valor} en ganancias.", # Tono negativo sobre el resultado
-     "Esa es información confidencial. ¿Por qué la necesitas?", # Cuestiona y evade (podría adaptarse para dar el valor a regañadientes)
-     "Pues {valor}, y ya. Es un tema delicado.", # Cortante, indica sensibilidad del tema
-     "Lamentablemente, el beneficio anual fue solo de {valor}.", # Usa "lamentablemente" y "solo" para negatividad
-     "Mira, las ganancias son {valor}, pero no es algo que me guste airear.", # Muestra incomodidad al compartir
-     "Si tengo que decirlo... {valor}. No preguntes más.", # Resignación y orden de no continuar
-     "Los números son {valor}. No hay mucho que celebrar.", # Tono pesimista sobre el resultado
+     "Ugh, ¿realmente importa? Bueno, las ganancias fueron {valor}.", 
+     "Preferiría no compartir cifras, pero ya que insistes... {valor}.", 
+     "No fue un buen año, la verdad. Apenas {valor} en ganancias.", 
+     "Esa es información confidencial. ¿Por qué la necesitas?", 
+     "Pues {valor}, y ya. Es un tema delicado.", 
+     "Lamentablemente, el beneficio anual fue solo de {valor}.", 
+     "Mira, las ganancias son {valor}, pero no es algo que me guste airear.", 
+     "Si tengo que decirlo... {valor}. No preguntes más.", 
+     "Los números son {valor}. No hay mucho que celebrar.", 
      "Qué manía con preguntar por el dinero... Fueron {valor}."
      ]
-plantillas_respuesta_activos = [ # >=10
+plantillas_respuesta_activos = [ 
      "Poseemos {valor} en activos.", "El valor total de nuestros activos es {valor}.",
      "Nuestros activos están valorados en {valor}.", "Contamos con activos por {valor}.",
      "El balance muestra {valor} en activos.", "El total de activos registrados es {valor}.",
      "Nuestros bienes y derechos suman {valor}.", "En activos, tenemos {valor}.",
      "El valor contable de los activos es {valor}.", "Activos totales: {valor}.",
-     "Pues, en total tenemos unos {valor} en activos.", # "Pues" + "unos"
-     "Lo que suma todo lo nuestro anda por los {valor}.", # "Lo nuestro" + "anda por los"
-     "Si contamos todo, llegamos a {valor} en activos.", # Lenguaje más simple
-     "En bienes y demás, tendremos unos {valor}.", # "Bienes y demás" es más vago/coloquial
-     "Más o menos {valor} es lo que tenemos en activos.", # Estructura simple con "más o menos"
-     "Nuestro patrimonio en activos es de {valor}, para que te hagas una idea.", # Usa "patrimonio" (puede ser impreciso pero común) + frase coloquial
-     "Contando edificios, equipos y eso, suma {valor}.", # Menciona ejemplos informales
+     "Pues, en total tenemos unos {valor} en activos.", 
+     "Lo que suma todo lo nuestro anda por los {valor}.", 
+     "Si contamos todo, llegamos a {valor} en activos.",
+     "En bienes y demás, tendremos unos {valor}.", 
+     "Más o menos {valor} es lo que tenemos en activos.", 
+     "Nuestro patrimonio en activos es de {valor}, para que te hagas una idea.",
+     "Contando edificios, equipos y eso, suma {valor}.", 
      "Tenemos {valor} en activos, números redondos.",
-     "El valor estimado de nuestros activos es de aproximadamente {valor}.", # Usa "estimado" y "aproximadamente"
-     "Nuestros activos rondan los {valor}, según la última valoración.", # Usa "rondan" y añade contexto
-     "Calculamos que el total de activos es cercano a {valor}.", # Usa "calculamos" y "cercano a"
-     "Es difícil dar una cifra exacta por las fluctuaciones, pero son unos {valor}.", # Explica dificultad y usa "unos"
-     "La valoración contable dice {valor}, pero el valor de mercado podría variar.", # Distingue tipos de valor (implica incertidumbre)
-     "Alrededor de {valor} en activos, aunque estamos revisando las cifras.", # "Alrededor de" + indica proceso en curso
-     "Tentativamente, el valor de los activos es {valor}.", # Usa "tentativamente"
-     "Pongamos que los activos suman {valor}, a falta de la auditoría final.", # "Pongamos que" + condiciona a auditoría
+     "Nuestros activos rondan los {valor}, según la última valoración.", 
+     "Calculamos que el total de activos es cercano a {valor}.", 
+     "Es difícil dar una cifra exacta por las fluctuaciones, pero son unos {valor}.", 
+     "La valoración contable dice {valor}, pero el valor de mercado podría variar.", 
+     "Alrededor de {valor} en activos, aunque estamos revisando las cifras.", 
+     "Tentativamente, el valor de los activos es {valor}.", 
      "El balance consolidado aún no está, pero esperamos activos por {valor}.",
-     "¡Estamos muy sólidos! Poseemos {valor} en activos.", # Califica la situación y usa exclamación
-     "Con orgullo podemos decir que el valor total de nuestros activos es {valor}.", # Expresa orgullo
-     "Tenemos una base de activos fuerte, valorada en {valor}.", # Califica la base de activos
-     "Afortunadamente, contamos con activos por {valor}, lo que nos da estabilidad.", # "Afortunadamente" + menciona beneficio (estabilidad)
-     "El balance refleja una excelente posición de activos: {valor}.", # Califica la posición como "excelente"
-     "Nuestros bienes y derechos suman la considerable cifra de {valor}.", # Califica la cifra como "considerable"
-     "Estamos bien respaldados con {valor} en activos totales.", # Indica seguridad/respaldo
+     "¡Estamos muy sólidos! Poseemos {valor} en activos.", 
+     "Con orgullo podemos decir que el valor total de nuestros activos es {valor}.", 
+     "Tenemos una base de activos fuerte, valorada en {valor}.", 
+     "Afortunadamente, contamos con activos por {valor}, lo que nos da estabilidad.", 
+     "El balance refleja una excelente posición de activos: {valor}.", 
+     "Nuestros bienes y derechos suman la considerable cifra de {valor}.", 
+     "Estamos bien respaldados con {valor} en activos totales.", 
      "¡Un gran respaldo! Activos totales por {valor}.",
-     "Ugh, detalles financieros... Los activos son {valor}.", # Muestra fastidio con el tipo de pregunta
-     "Esa es información interna. ¿Por qué necesitas saber el valor de los activos? Bueno, son {valor}.", # Cuestiona y responde a regañadientes
-     "Preferiría no detallar el balance. El total de activos es {valor}.", # Expresa preferencia por no detallar
-     "Son {valor}. ¿Alguna otra pregunta irrelevante?", # Responde y descalifica la pregunta
-     "No es una cifra para presumir, la verdad. Tenemos {valor} en activos.", # Tono negativo sobre la cantidad
-     "Apenas llegamos a {valor} en activos totales.", # "Apenas" implica cantidad baja o insuficiente
-     "El valor contable es {valor}, si es que eso te sirve de algo.", # Responde con tono escéptico sobre la utilidad del dato
-     "Pues {valor}, y dejemos los números ahí, ¿quieres?", # Cortante y pide finalizar el tema
-     "Nuestros activos suman {valor}. Punto.", # Tajante
+     "Ugh, detalles financieros... Los activos son {valor}.", 
+     "Esa es información interna. ¿Por qué necesitas saber el valor de los activos? Bueno, son {valor}.", 
+     "Preferiría no detallar el balance. El total de activos es {valor}.", 
+     "Son {valor}. ¿Alguna otra pregunta irrelevante?",
+     "No es una cifra para presumir, la verdad. Tenemos {valor} en activos.",
+     "Apenas llegamos a {valor} en activos totales.", 
+     "El valor contable es {valor}, si es que eso te sirve de algo.", 
+     "Pues {valor}, y dejemos los números ahí, ¿quieres?", 
+     "Nuestros activos suman {valor}. Punto.", 
      "Qué fijación con los balances... Son {valor} en activos.",
      ]
-plantillas_respuesta_cartera = [ # >=10
+plantillas_respuesta_cartera = [ 
      "Nuestra cartera está valorada en {valor}.", "Tenemos {valor} en cartera.",
      "El valor de la cartera de clientes es {valor}.", "La cartera asciende a {valor}.",
      "Manejamos una cartera de {valor}.", "Las cuentas por cobrar suman {valor}.",
      "Tenemos pendiente de cobro {valor}.", "El saldo de cartera es {valor}.",
      "La cartera de créditos es de {valor}.", "Valor en cartera: {valor}.",
-     "Pues, nos deben unos {valor} en total los clientes.", # "Pues" + "unos" + lenguaje simple
-     "Lo que tenemos pendiente de que nos paguen es más o menos {valor}.", # Explica el concepto + "más o menos"
-     "Andamos con {valor} en la calle ahora mismo.", # "Andamos con" + "en la calle" (coloquial)
-     "Si sumas lo que nos deben, da unos {valor}.", # Estructura simple + "unos"
-     "La gente nos debe como {valor}.", # "La gente" + "como" (aproximación informal)
-     "El total pendiente de cobro está por los {valor}.", # "Está por los" (aproximación)
-     "Manejamos {valor} en cuentas por cobrar, para darte una idea.", # Directo + frase coloquial
-     "Tenemos {valor} que nos deben.", # Muy directo y simple
-     "La cartera está valorada en aproximadamente {valor}, neto de provisiones.", # "Aproximadamente" + añade detalle técnico
-     "Estimamos que las cuentas por cobrar rondan los {valor}.", # "Estimamos" + "rondan"
-     "Alrededor de {valor}, pero la cifra cambia a diario.", # "Alrededor de" + menciona fluctuación
-     "Cerca de {valor}, aunque la recuperabilidad real es otra historia.", # "Cerca de" + duda sobre cobro efectivo
-     "El saldo bruto es {valor}, pero hay que descontar la posible mora.", # Distingue bruto y menciona riesgo
-     "Calculamos unos {valor} pendientes, pero aún no cierra el mes.", # "Calculamos" + "unos" + depende del cierre
-     "Más o menos {valor}, dependiendo de cómo vaya la cobranza.", # "Más o menos" + condiciona a la gestión
+     "Pues, nos deben unos {valor} en total los clientes.", 
+     "Lo que tenemos pendiente de que nos paguen es más o menos {valor}.", 
+     "Andamos con {valor} en la calle ahora mismo.", 
+     "Si sumas lo que nos deben, da unos {valor}.", 
+     "La gente nos debe como {valor}.", 
+     "El total pendiente de cobro está por los {valor}.", 
+     "Manejamos {valor} en cuentas por cobrar, para darte una idea.",
+     "Tenemos {valor} que nos deben.", 
+     "La cartera está valorada en aproximadamente {valor}, neto de provisiones.", 
+     "Estimamos que las cuentas por cobrar rondan los {valor}.", 
+     "Alrededor de {valor}, pero la cifra cambia a diario.", 
+     "Cerca de {valor}, aunque la recuperabilidad real es otra historia.",
+     "El saldo bruto es {valor}, pero hay que descontar la posible mora.",
+     "Calculamos unos {valor} pendientes, pero aún no cierra el mes.", 
+     "Más o menos {valor}, dependiendo de cómo vaya la cobranza.", 
      "La cifra consolidada no está, pero individualmente suma unos {valor}.",
-     "¡Manejamos una cartera muy saludable de {valor}, reflejo de buenas ventas!", # "Saludable" + asocia a ventas
-     "Estamos contentos con la actividad, tenemos {valor} en cartera.", # Expresa satisfacción
-     "Nuestra cartera de clientes asciende a unos sólidos {valor}.", # Califica como "sólidos"
-     "¡Excelente gestión de crédito! Las cuentas por cobrar suman {valor}.", # Elogia la gestión
-     "Tenemos {valor} pendiente de cobro, lo cual indica un negocio dinámico.", # Asocia a dinamismo
-     "El buen nivel de ventas se ve en nuestra cartera de {valor}.", # Vincula a buen nivel de ventas
-     "Orgullosos de nuestra base de clientes: la cartera vale {valor}.", # Orgullo por los clientes
-     "Contamos con {valor} en cartera bien administrada.", # Resalta la administración
-     "Ugh, la cartera es {valor}. Un montón de dinero en la calle.", # "Ugh" + negatividad sobre dinero pendiente
-     "¿Y eso a ti qué te importa? Son {valor} pendientes.", # Molestia directa
-     "Preferiría no hablar de cuánto nos deben... pero son {valor}.", # Reticencia explícita
-     "Tenemos {valor} por cobrar, y es una lucha recuperarlo.", # Tono negativo sobre la dificultad de cobro
-     "La cifra es {valor}, pero con la morosidad actual, quién sabe.", # Duda sobre el valor real por morosidad
-     "Son {valor}. Datos internos, ¿sabes?", # Responde pero marca como interno/confidencial
-     "Apenas {valor} en cartera. Necesitamos mover más crédito/ventas.", # Tono negativo sobre cantidad baja
-     "Pues {valor}. ¿Feliz con el dato?", # Responde con sarcasmo/molestia
-     "Manejar {valor} en cartera es un riesgo constante.", # Enfoca en el riesgo
-     "Qué fastidio estas preguntas... Son {valor}.", # Muestra fastidio
+     "¡Manejamos una cartera muy saludable de {valor}, reflejo de buenas ventas!", 
+     "Estamos contentos con la actividad, tenemos {valor} en cartera.", 
+     "Nuestra cartera de clientes asciende a unos sólidos {valor}.", 
+     "¡Excelente gestión de crédito! Las cuentas por cobrar suman {valor}.", 
+     "Tenemos {valor} pendiente de cobro, lo cual indica un negocio dinámico.", 
+     "El buen nivel de ventas se ve en nuestra cartera de {valor}.", 
+     "Orgullosos de nuestra base de clientes: la cartera vale {valor}.", 
+     "Contamos con {valor} en cartera bien administrada.", 
+     "Ugh, la cartera es {valor}. Un montón de dinero en la calle.", 
+     "¿Y eso a ti qué te importa? Son {valor} pendientes.", 
+     "Preferiría no hablar de cuánto nos deben... pero son {valor}.", 
+     "Tenemos {valor} por cobrar, y es una lucha recuperarlo.", 
+     "La cifra es {valor}, pero con la morosidad actual, quién sabe.", 
+     "Son {valor}. Datos internos, ¿sabes?", 
+     "Apenas {valor} en cartera. Necesitamos mover más crédito/ventas.", 
+     "Pues {valor}. ¿Feliz con el dato?", 
+     "Manejar {valor} en cartera es un riesgo constante.", 
+     "Qué fastidio estas preguntas... Son {valor}.", 
      "{valor} es el valor actual de nuestra cartera.",
      "{valor} tenemos registrado en cuentas por cobrar.",
      "Unos {valor} es lo que asciende la cartera de clientes.",
@@ -421,45 +412,45 @@ plantillas_respuesta_cartera = [ # >=10
      "{valor}, esa es la cifra que tenemos pendiente que nos paguen.",
      "Alrededor de {valor} figura en cartera en nuestros libros.",
      ]
-plantillas_respuesta_deudas = [ # >=10
+plantillas_respuesta_deudas = [ 
      "Nuestras deudas totales son {valor}.", "Tenemos deudas por un valor de {valor}.",
      "El pasivo total asciende a {valor}.", "Debemos aproximadamente {valor}.",
      "El endeudamiento total es de {valor}.", "Nuestras obligaciones financieras suman {valor}.",
      "El valor total de las deudas es {valor}.", "Registramos deudas por {valor}.",
      "Tenemos un pasivo de {valor}.", "Deudas acumuladas: {valor}.",
-     "Pues, en total debemos unos {valor}.", # "Pues" + "unos"
-     "Lo que debemos anda por los {valor}, más o menos.", # Lenguaje simple + "anda por los" + "más o menos"
-     "Entre préstamos y proveedores, debemos como {valor}.", # Menciona tipos + "como" (aproximación)
-     "Las cuentas por pagar y otras deudas suman {valor}.", # Usa "cuentas por pagar" (común)
-     "Tenemos que pagar {valor} en total.", # Simple y directo
-     "El nivel de deuda que manejamos es de {valor}.", # "Nivel de deuda" es común
-     "Si sumas todo lo que debemos, da unos {valor}.", # Estructura explicativa simple
-     "Andamos debiendo cerca de {valor}.", # "Andamos debiendo" (coloquial)
-     "Nuestras deudas totales son aproximadamente {valor}.", # Usa "aproximadamente"
-     "Estimamos que el pasivo total ronda los {valor}.", # "Estimamos" + "ronda"
-     "El endeudamiento es cercano a {valor}, pero varía con los pagos.", # "Cercano a" + menciona variabilidad
-     "Debemos más o menos {valor}, pendiente de consolidar cifras.", # "Más o menos" + indica falta de consolidación
-     "Alrededor de {valor}, aunque la cifra exacta depende de intereses.", # "Alrededor de" + menciona dependencia
-     "Calculamos un pasivo de {valor}, pero aún no es el cierre definitivo.", # "Calculamos" + indica no ser definitivo
-     "La cifra bruta de deuda es {valor}, habría que ver el neto.", # Distingue bruto/neto
-     "Tentativamente, nuestras obligaciones financieras suman {valor}.", # "Tentativamente"
-     "Tenemos deudas por {valor}, alineadas con nuestra estrategia de inversión.", # Justifica la deuda
-     "El pasivo total es {valor}, un nivel que consideramos manejable.", # Indica que es "manejable"
-     "Nuestro endeudamiento de {valor} está bajo control y dentro de los parámetros.", # Indica control
-     "Las obligaciones financieras suman {valor}, como parte del financiamiento operativo normal.", # Normaliza la deuda
-     "Registramos deudas por {valor}, lo cual es coherente con nuestro tamaño/sector.", # Contextualiza
-     "Mantenemos un pasivo de {valor} para optimizar nuestra estructura de capital.", # Tono estratégico/financiero
-     "El valor total de las deudas es {valor}, y contamos con planes de pago definidos.", # Indica planificación
-     "Tenemos {valor} en deudas, respaldadas por nuestros activos/flujo de caja.", # Justifica la deuda
-     "Ugh, el pasivo es {valor}. Es una cifra preocupante.", # "Ugh" + preocupación explícita
-     "Tenemos deudas por {valor}, y francamente, es demasiado.", # Opinión negativa directa ("demasiado")
-     "Preferiría no dar ese dato... el endeudamiento es de {valor}.", # Reticencia explícita
-     "¿Deudas? {valor}. Una situación complicada.", # Responde y califica negativamente la situación
-     "Lamentablemente, debemos {valor} en total.", # Usa "lamentablemente"
-     "Nuestras obligaciones financieras suman {valor}, y nos pesan mucho.", # Indica que son una carga ("pesan mucho")
-     "Son {valor}. Es información muy sensible.", # Marca como sensible (implica reticencia/preocupación)
-     "El nivel de deuda ({valor}) nos tiene contra las cuerdas.", # Expresión fuerte de dificultad
-     "Qué pregunta... El pasivo es {valor}.", # Muestra molestia por la pregunta
+     "Pues, en total debemos unos {valor}.", 
+     "Lo que debemos anda por los {valor}, más o menos.", 
+     "Entre préstamos y proveedores, debemos como {valor}.",
+     "Las cuentas por pagar y otras deudas suman {valor}.", 
+     "Tenemos que pagar {valor} en total.", 
+     "El nivel de deuda que manejamos es de {valor}.", 
+     "Si sumas todo lo que debemos, da unos {valor}.", 
+     "Andamos debiendo cerca de {valor}.", 
+     "Nuestras deudas totales son aproximadamente {valor}.", 
+     "Estimamos que el pasivo total ronda los {valor}.", 
+     "El endeudamiento es cercano a {valor}, pero varía con los pagos.", 
+     "Debemos más o menos {valor}, pendiente de consolidar cifras.", 
+     "Alrededor de {valor}, aunque la cifra exacta depende de intereses.", 
+     "Calculamos un pasivo de {valor}, pero aún no es el cierre definitivo.", 
+     "La cifra bruta de deuda es {valor}, habría que ver el neto.", 
+     "Tentativamente, nuestras obligaciones financieras suman {valor}.", 
+     "Tenemos deudas por {valor}, alineadas con nuestra estrategia de inversión.", 
+     "El pasivo total es {valor}, un nivel que consideramos manejable.", 
+     "Nuestro endeudamiento de {valor} está bajo control y dentro de los parámetros.", 
+     "Las obligaciones financieras suman {valor}, como parte del financiamiento operativo normal.", 
+     "Registramos deudas por {valor}, lo cual es coherente con nuestro tamaño/sector.", 
+     "Mantenemos un pasivo de {valor} para optimizar nuestra estructura de capital.", 
+     "El valor total de las deudas es {valor}, y contamos con planes de pago definidos.", 
+     "Tenemos {valor} en deudas, respaldadas por nuestros activos/flujo de caja.", 
+     "Ugh, el pasivo es {valor}. Es una cifra preocupante.", 
+     "Tenemos deudas por {valor}, y francamente, es demasiado.", 
+     "Preferiría no dar ese dato... el endeudamiento es de {valor}.", 
+     "¿Deudas? {valor}. Una situación complicada.", 
+     "Lamentablemente, debemos {valor} en total.", 
+     "Nuestras obligaciones financieras suman {valor}, y nos pesan mucho.", 
+     "Son {valor}. Es información muy sensible.", 
+     "El nivel de deuda ({valor}) nos tiene contra las cuerdas.", 
+     "Qué pregunta... El pasivo es {valor}.", 
      "{valor} es la suma total de nuestras deudas.",
      "{valor} es a lo que asciende el pasivo total registrado.",
      "Aproximadamente {valor} debemos entre todas las obligaciones.",
@@ -469,7 +460,7 @@ plantillas_respuesta_deudas = [ # >=10
      "{valor}, esa es la cifra de nuestro pasivo consolidado.",
      "Alrededor de {valor} tenemos acumulado en deudas.",
      ]
-plantillas_respues_deuda_ninguna = [ # >=10
+plantillas_respues_deuda_ninguna = [ 
      "No tenemos deudas.", "Estamos libres de deudas.", "No reportamos deudas.",
      "No tenemos obligaciones financieras.", "No hay deudas registradas.",
      "No tenemos pasivos.", "No debemos nada.", "Estamos completamente al día.",
@@ -500,12 +491,11 @@ def generar_frase_ner(categoria, df_categorias):
 
     texto_frase = ""
     entidades = []
-    valor_entidad_str = "" # El string exacto de la entidad insertada
+    valor_entidad_str = "" 
 
     # --- Generación específica para cada categoría de respuesta ---
     if categoria == "Respuesta Nombre":
         plantilla = random.choice(plantillas_respuesta_nombre)
-        # Evitar plantillas que son solo el placeholder "{nombre_empresa}" para que find() funcione
         if plantilla == "{nombre_empresa}": plantilla = "La empresa es {nombre_empresa}."
         valor_entidad_str = fake.company()
         texto_frase = plantilla.format(nombre_empresa=valor_entidad_str)
@@ -515,7 +505,7 @@ def generar_frase_ner(categoria, df_categorias):
         seleccion = df_categorias.sample(1).iloc[0]
         valor_entidad_str = seleccion['Area']
         plantilla = random.choice(plantillas_respuesta_categoria)
-        if plantilla == "{categoria}.": plantilla = "La categoría es {categoria}." # Evitar plantilla solo placeholder
+        if plantilla == "{categoria}.": plantilla = "La categoría es {categoria}." 
         texto_frase = plantilla.format(categoria=valor_entidad_str)
 
     elif categoria == "Respuesta Sector":
@@ -523,7 +513,7 @@ def generar_frase_ner(categoria, df_categorias):
         seleccion = df_categorias.sample(1).iloc[0]
         valor_entidad_str = seleccion['Sector']
         plantilla = random.choice(plantillas_respuesta_sector)
-        if plantilla == "{sector}.": plantilla = "El sector es {sector}." # Evitar plantilla solo placeholder
+        if plantilla == "{sector}.": plantilla = "El sector es {sector}." 
         texto_frase = plantilla.format(sector=valor_entidad_str)
 
     elif categoria == "Respuesta Empleados":
@@ -576,7 +566,6 @@ def generar_frase_ner(categoria, df_categorias):
             valor_entidad_str = f"{prefijo}{palabras_numero} {unidad_texto}" # Entidad incluye prefijo y unidad
 
         plantilla = random.choice(plantillas_usar)
-        # Asegurar que la plantilla use {valor}
         if "{valor}" not in plantilla: plantilla = "El valor es {valor}."
         texto_frase = plantilla.format(valor=valor_entidad_str)
 
@@ -628,11 +617,9 @@ else:
                     # Añadir al set y al dataset
                     textos_generados_set.add(texto_frase)
                     # Guardar en formato diccionario compatible con JSON
-                    # Solo añadir si se encontraron entidades (o decidir si incluir frases sin entidades)
                     if entidades: # Solo guardar si encontramos la entidad
                          dataset_ner.append({"text": texto_frase, "entities": entidades})
                          ejemplos_generados_categoria += 1
-                    # else: print(f"INFO: Frase generada sin entidad encontrada: '{texto_frase}'") # Opcional
 
             except Exception as e:
                 print(f"ERROR generando NER para '{categoria}' (Intento {intentos}): {e}")
